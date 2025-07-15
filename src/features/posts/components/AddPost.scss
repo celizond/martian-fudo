@@ -1,0 +1,17 @@
+@use '../../../_variables' as *;
+
+.add-post {
+    background-color: grey;
+
+    textarea {
+        font-size: 18px;
+        color: $dark-color;
+        background-color: $primary;
+        min-height: 100px;
+        width: 80%;
+    }
+
+    textarea::-webkit-input-placeholder {
+        color: whitesmoke;
+    }
+}

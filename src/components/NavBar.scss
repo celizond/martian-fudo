@@ -1,7 +1,7 @@
 @use '../_variables' as *;
 
 .navbar {
-    background-color: $dark-color;
+    background-color: $dark;
     display:flex;
     position: fixed;
     top: 0;
@@ -10,7 +10,7 @@
     width: calc(100% - 32px);
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid $primary;
 
     .application {
         display: flex;
@@ -20,9 +20,8 @@
         }
         input {
             border-radius: 16px;
-            border-color: greenyellow;
             outline: none;
-            background-color: #edefedee;
+            background-color: $dark;
             padding: 6px;
             width: 160px;
             margin-left: 16px;
