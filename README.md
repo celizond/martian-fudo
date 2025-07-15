@@ -1,6 +1,20 @@
-# React + TypeScript + Vite
+# MARTIAN FUDO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En es una aplicación web destinada a ...
+Para correrla es necesario hacer las correspondientes instalaciones y levantar el proyecto
+```
+npm install
+npm run dev
+```
+
+# SECTOR TÉCNICO
+
+Uso para ruteo: React Router DOM V6
+```
+npm install react-router-dom@6
+```
+
+<!-- This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
 
@@ -52,3 +66,4 @@ export default tseslint.config({
   },
 })
 ```
+ -->
