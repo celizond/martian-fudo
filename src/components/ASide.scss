@@ -1,0 +1,9 @@
+@use '../_variables' as *;
+
+.aside {
+    color:whitesmoke;
+    min-width: 200px;
+    background-color: $dark-color;
+    font-weight: 400;
+    height: auto;
+}
