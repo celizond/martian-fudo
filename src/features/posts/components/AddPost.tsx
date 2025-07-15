@@ -27,14 +27,14 @@ export const AddPost = () => {
             <form
                 onSubmit={onSubmitPost}
                 className='post-form' >
-                <input
-                    type='text'
-                    name='post'
+                <textarea
+                    name="post"
                     className='input-post'
                     placeholder='¿Qué querés compartir con los Martianos?'
                     value={post}
-                    onChange={onInputChange} >
-                </input>
+                    onChange={onInputChange}>
+
+                </textarea>
                 <button type='submit'>
                     Postear
                 </button>
