@@ -1,9 +1,13 @@
 @use '../_variables' as *;
 
 .aside {
+    position: fixed;
+    top: 53px;
+    left: 0;
     color:whitesmoke;
-    min-width: 200px;
+    min-width: 243px;
     background-color: $dark-color;
     font-weight: 400;
     height: auto;
+    min-height: 100%;
 }
