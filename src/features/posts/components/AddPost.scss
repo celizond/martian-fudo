@@ -1,17 +1,20 @@
 @use '../../../_variables' as *;
 
 .add-post {
-    background-color: grey;
+    background-color: $primary;
+    display: flex;
+    padding: 16px;
 
-    textarea {
-        font-size: 18px;
-        color: $dark-color;
-        background-color: $primary;
-        min-height: 100px;
-        width: 80%;
-    }
+    .post-form {
+        margin-left: 16px;
 
-    textarea::-webkit-input-placeholder {
-        color: whitesmoke;
+        input {
+            background-color: transparent;
+            border: 0 none;
+            border-radius: 0;
+            box-shadow: none;
+            min-height: 32px;
+            height: auto;
+        }
     }
 }

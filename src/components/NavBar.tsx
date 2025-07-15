@@ -1,3 +1,4 @@
+import { ImageBox } from './ImageBox'
 import './NavBar.scss'
 
 export const NavBar = () => {
@@ -14,10 +15,10 @@ export const NavBar = () => {
                 <span className='user'>
                     Kassandra
                 </span>
-                <img 
-                className='photo'
-                alt='profile-user-photo'
-                src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg'/>
+                <ImageBox 
+                src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg'
+                alt='profile-user-photo' />
+                
             </div>
         </nav>
     )
