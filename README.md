@@ -14,6 +14,11 @@ Uso para ruteo: React Router DOM V6
 npm install react-router-dom@6
 ```
 
+Para los estilos: SASS
+```
+npm install -D sass
+```
+
 <!-- This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

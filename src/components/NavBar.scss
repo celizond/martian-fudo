@@ -1,0 +1,44 @@
+.navbar {
+    background-color: #242424;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    position: sticky;
+    align-items: center;
+
+    .application {
+        display: flex;
+
+        .logo {
+            color: white;
+        }
+        input {
+            border-radius: 16px;
+            border-color: greenyellow;
+            outline: none;
+            background-color: #edefedee;
+            padding: 6px;
+            width: 160px;
+            margin-left: 16px;
+            text-align: center;
+            font-size: 14px;
+        }
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+
+        .user {
+            color: whitesmoke;
+            padding-right: 16px;
+            font-size: 18px;
+        }
+    }
+
+    .photo {
+        height: 36px;
+        width: 36px;
+        border-radius: 18px;
+    }
+}

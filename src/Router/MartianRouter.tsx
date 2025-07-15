@@ -6,6 +6,8 @@ export const MartianRouter = () => {
   return (
     <Routes>
         <Route path='/home' element={<HomePage />} />
+        <Route path='/post/:id' element={<HomePage />} />
+        
         <Route path='/*' element={<Navigate to='/home'/>} />
     </Routes>
   )

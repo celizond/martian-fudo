@@ -1,6 +1,11 @@
+import { MartianLayout } from "../layouts/MartianLayout"
 
 export const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <MartianLayout>
+      <div>
+        home con layout
+      </div>
+    </MartianLayout>
   )
 }
