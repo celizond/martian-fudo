@@ -6,10 +6,8 @@ import './HomePage.scss';
 export const HomePage = () => {
   return (
     <MartianLayout>
-      <div className='home-page'>
         <AddPost />
         <FeedPosts />
-      </div>
     </MartianLayout>
   )
 }

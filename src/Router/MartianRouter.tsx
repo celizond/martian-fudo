@@ -1,7 +1,5 @@
-import { Navigate, Route, Routes } from "react-router-dom"
-import { HomePage } from "../pages/HomePage"
-import { PostPage } from "../pages/PostPage"
-
+import { Navigate, Route, Routes } from "react-router-dom";
+import { HomePage, PostPage } from "../pages";
 
 export const MartianRouter = () => {
   return (
