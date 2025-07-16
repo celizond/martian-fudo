@@ -1,0 +1,21 @@
+@use '../variables' as *;
+
+input {
+    background-color: whitesmoke;
+    color: black;
+    padding: 6px;
+    width: 250px;
+    margin-left: 16px;
+    font-size: 14px;
+}
+
+.box {
+    margin: 10% 20%;
+    padding: 16px;
+    height: 360px;
+    background-color: $dark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+}

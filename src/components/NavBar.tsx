@@ -2,6 +2,9 @@ import { ImageBox } from './ImageBox'
 import './NavBar.scss'
 
 export const NavBar = () => {
+
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    
     return (
         <nav className='navbar'>
             <div className='application'>
@@ -13,10 +16,10 @@ export const NavBar = () => {
             </div>
             <div className='profile'>
                 <span className='user'>
-                    Kassandra
+                    {user?.name}
                 </span>
                 <ImageBox 
-                src='https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg'
+                src={user?.avatar}
                 alt='profile-user-photo' />
                 
             </div>
