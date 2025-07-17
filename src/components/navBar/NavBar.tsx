@@ -8,10 +8,10 @@ export const NavBar = () => {
     return (
         <nav className='navbar'>
             <div className='application'>
-                <img 
-                className='photo'
-                alt='application-photo'
-                src='https://upload.wikimedia.org/wikipedia/commons/d/de/Color-Green.JPG'/>
+                <ImageBox 
+                src='https://upload.wikimedia.org/wikipedia/commons/d/de/Color-Green.JPG'
+                alt='application-photo' />
+
                 <input type='text' className='' placeholder='Buscar' />
             </div>
             <div className='profile'>

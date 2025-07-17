@@ -5,20 +5,14 @@
     color: whitesmoke;
 }
 
-.photo {
-    height: 36px;
-    width: 36px;
-    border-radius: 18px;
-}
-
 input {
-    color: $font-primary;
+    color: $light-primary;
 }
 
 h2 {
-    color: $font-primary;
-    font-size: 24px;
-    margin-bottom: 16px;
+    color: $light-primary;
+    font-size: $xbig;
+    margin-bottom: $med;
 }
 
 .shorten-content {

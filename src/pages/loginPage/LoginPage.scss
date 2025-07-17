@@ -6,12 +6,12 @@ input {
     padding: 6px;
     width: 250px;
     margin-left: 16px;
-    font-size: 14px;
+    font-size: $sma;
 }
 
 .box {
     margin: 10% 20%;
-    padding: 16px;
+    padding: $med;
     height: 360px;
     background-color: $dark;
     display: flex;

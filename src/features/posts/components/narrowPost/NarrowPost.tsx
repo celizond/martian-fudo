@@ -12,12 +12,12 @@ export const NarrowPost = (post: post) => {
     }
 
     return (
-        <div className='narrow-post'>
+        <article className='narrow-post'>
             <span className='name'> {name} </span>
             <hr />
             <span className='title shorten-content'> {title} </span>
             <p className='shorten-content'> {content} </p>
-            <Button text='Continuar leyendo' onClick={onViewMore} />
-        </div>
+            <Button text='Seguir leyendo' onClick={onViewMore} />
+        </article>
     )
 }

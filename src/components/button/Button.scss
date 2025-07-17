@@ -6,11 +6,11 @@
 
     button {
         background-color: $dark;
-        color: $font-secondary;
+        color: $light-secondary;
         padding: 8px;
         border-radius: 8px;
         border-color: $dark;
-        min-width: 100px;
+        min-width: 110px;
     }
 
     button:disabled {

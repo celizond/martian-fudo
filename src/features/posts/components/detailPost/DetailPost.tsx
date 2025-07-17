@@ -1,19 +1,27 @@
-import { useNavigate } from "react-router-dom";
+
+
+import { ImageBox } from "../../../../components";
 import type { post } from "../../types/postTypes"
 import './DetailPost.scss';
-import { Button } from "../../../../components";
-export const DetailPost = (post: post) => {
-
-    const navigate = useNavigate();
-    const onViewMore = () => {
-        navigate(`/post/${post.id}`, {state: {post}})
-    }
+export const DetailPost = ({ avatar, name, createdAt, id, title, content }: post) => {
 
     return (
-        <div className='detail-container'>
-            {post.name} <br />
-            {post.title} <br />
-            <Button text='Continuar leyendo' onClick={onViewMore} />       
-        </div>
+        <article className='detail-post'>
+            <header>
+                <ImageBox src={avatar} alt={`user-${name}`} />
+                <span className='name'> {name} </span>
+                <h1 className='title '> {title} </h1>
+                
+            </header>
+            <p className='content'> {content} </p>
+            <footer>
+                <div>
+                    <strong>Post</strong> #{id}
+                </div>
+                <div>
+                    <strong>Fecha de publicación</strong> {createdAt.substring(0, 10)}
+                </div>
+            </footer>
+        </article>
     )
 }

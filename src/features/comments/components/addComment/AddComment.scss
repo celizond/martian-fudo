@@ -1,0 +1,13 @@
+@use '../../../../_variables' as *;
+
+.add-comment {
+    background-color: $tertiary;
+    display: flex;
+    padding: 16px;
+    width: calc(100% - 32px);
+
+    .comment-form {
+        margin-left: 16px;
+        width: 100%;
+    }
+}

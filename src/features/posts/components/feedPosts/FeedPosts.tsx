@@ -23,7 +23,7 @@ export const FeedPosts = () => {
 
 
     return (
-        <>
+        <section>
             {first !== undefined &&
 
                 first.map((post: post) => (
@@ -33,6 +33,6 @@ export const FeedPosts = () => {
                 ))
 
             }
-        </>
+        </section>
     )
 }

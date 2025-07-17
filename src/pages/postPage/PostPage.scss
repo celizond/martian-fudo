@@ -1,0 +1,10 @@
+@use '../../_variables' as *;
+
+.martian-layout {
+    h2 {
+        margin: 0;
+        padding: $med;
+        font-weight: 400;
+        background-color: $secondary;
+    }
+}

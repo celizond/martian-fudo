@@ -7,26 +7,21 @@
     max-width: 1000px;
 }
 
-//SCROLL
 .scrollable {
-  scrollbar-width: thin;             
-  scrollbar-color: $font-secondary $dark;
+    scrollbar-width: thin;
+    scrollbar-color: $light-secondary $dark;
 }
-
-/* Webkit-based (Chrome, Safari) */
 .scrollable::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
-
 .scrollable::-webkit-scrollbar-track {
-  background: $dark;
+    background: $dark;
 }
 .scrollable::-webkit-scrollbar-thumb {
-  background-color: $font-secondary;
-  border-radius: 6px;
-  border: 2px solid $dark;
+    background-color: $light-secondary;
+    border-radius: 6px;
+    border: 2px solid $dark;
 }
-
 .scrollable::-webkit-scrollbar-thumb:hover {
-  background-color: $font-primary;
+    background-color: $light-primary;
 }
