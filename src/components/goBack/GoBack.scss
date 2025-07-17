@@ -1,0 +1,9 @@
+@use '../../_variables' as *;
+
+.go-back {
+    background-color: $tertiary;
+    font-size: $big;
+    
+    padding: 8px 16px;
+    width: calc(100% - 32px);
+}

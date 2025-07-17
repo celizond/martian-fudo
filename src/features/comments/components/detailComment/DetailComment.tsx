@@ -4,26 +4,33 @@ import type { comment } from '../../types/commentTypes';
 import './DetailComment.scss';
 import Modal from '../../../../components/modal/Modal';
 import { AddComment } from '../addComment/AddComment';
+import { ViewMoreComments } from '../viewMoreComments/ViewMoreComments';
 
 export const DetailComment = ({ name, avatar, content }: comment) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
-    <article className='detail-comment'>
-      <header>
-        <ImageBox src={avatar} alt={`user-${name}`} height={27} width={27} />
-        <h3 className='shorten-content'>{name}</h3>
-      </header>
-      <p>
-        {content}
-        <Button type='submit' text='Comentar' onClick={() => setIsOpenModal(true)} />
-      </p>
+    <div className='detail-comment'>
+      <article className='detail-article'>
+        <header>
+          <ImageBox src={avatar} alt={`user-${name}`} height={27} width={27} />
+          <h3 className='shorten-content'>{name}</h3>
+        </header>
+        <div>
+          <p> {content} </p>
+          <Button type='submit' text='Comentar' onClick={() => setIsOpenModal(true)} />
+        </div>
+      </article>
+
+      <footer className='comment-actions'>
+        <ViewMoreComments />
+      </footer>
 
       <Modal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}>
         <h4>Responde el comentario de {name}</h4>
         <AddComment anotherFn={() => setIsOpenModal(false)} />
       </Modal>
 
-    </article>
+    </div>
   )
 }

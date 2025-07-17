@@ -6,3 +6,5 @@ export type comment = {
     content: string;
     parentId: null | string;
 }
+
+export type comments = comment[];

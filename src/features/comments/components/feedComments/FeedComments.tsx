@@ -8,7 +8,7 @@ export const FeedComments = () => {
 
     const checkData = async () => {
         try {
-            const response = await api.get('/post/4/comment');
+            const response = await api.get('/post/1/comment');
             setfirst(response.data)
             console.log('Res ', response)
         } catch (error) {
@@ -16,7 +16,6 @@ export const FeedComments = () => {
         }
     };
     useEffect(() => {
-
         checkData()
     }, [])
 
@@ -24,13 +23,11 @@ export const FeedComments = () => {
     return (
         <section>
             {first !== undefined &&
-
                 first.map((comment: comment) => (
                     <DetailComment
                         key={comment.id}
                         {...comment} />
                 ))
-
             }
         </section>
     )

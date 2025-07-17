@@ -1,26 +1,29 @@
 @use '../../../../_variables' as *;
 
 .detail-comment {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    color: $light-secondary;
-    padding: $med;
     border-bottom: 2px solid $dark;
 
-    header {
-        text-align: center;
-        margin-top: 16px;
+    .detail-article {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        color: $light-secondary;
+        padding: $med;
 
-        h3 {
-            font-size: $med;
-            margin-top: 4px;
+        header {
+            text-align: center;
+            margin-top: 16px;
+
+            h3 {
+                font-size: $med;
+                margin-top: 4px;
+            }
+        }
+
+        p {
+            margin: 0;
+            padding-left: $med;
+            font-size: $sma;
+            margin-bottom: $sma;
         }
     }
-
-    p {
-        margin: 0;
-        padding-left: $med;
-        font-size: $sma;
-    }
-
 }
