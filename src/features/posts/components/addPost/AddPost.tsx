@@ -1,5 +1,6 @@
-import { ImageBox } from '../../../components/ImageBox';
-import { useForm } from '../../../hooks/useForm';
+import { Button } from '../../../../components';
+import { ImageBox } from '../../../../components/imageBox/ImageBox';
+import { useForm } from '../../../../hooks/useForm';
 import './AddPost.scss';
 
 export const AddPost = () => {
@@ -16,7 +17,6 @@ export const AddPost = () => {
         console.log('envio de info de post a back: ', post.trim());
         //Obtener del context el usuario que manda+
         onResetForm();
-
     }
 
     return (
@@ -35,9 +35,7 @@ export const AddPost = () => {
                     onChange={onInputChange}>
 
                 </textarea>
-                <button type='submit'>
-                    Postear
-                </button>
+                <Button type='submit' text='postear' onClick={onSubmitPost} />
             </form>
         </div>
     )

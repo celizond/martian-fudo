@@ -1,5 +1,8 @@
+@use '../variables' as *;
+
 .martian-layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background-color: $primary;
 }

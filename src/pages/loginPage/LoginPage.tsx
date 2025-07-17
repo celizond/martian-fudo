@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { AuthContext } from "../features/auth/context/AuthContext";
-import { useForm } from "../hooks/useForm";
+import { AuthContext } from "../../features/auth/context";
+import { useForm } from "../../hooks/useForm";
 import './LoginPage.scss';
+import { Button } from "../../components";
 
 export const LoginPage = () => {
 
@@ -40,11 +41,8 @@ export const LoginPage = () => {
           placeholder='URL de avatar'
           value={avatar}
           onChange={onInputChange}>
-        </input>
-       
-        <button type='submit' disabled={name.length < 1 ? true : false}>
-          Login
-        </button>
+        </input>       
+        <Button text='Login' type='submit'disabled={name.length < 1 ? true : false} onClick={onLogin} />
       </form>
 
     </div>

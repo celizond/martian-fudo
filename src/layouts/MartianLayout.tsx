@@ -1,7 +1,5 @@
-import { ASide } from "../components/ASide"
-import { Main } from "../components/Main"
-import { NavBar } from "../components/NavBar"
-import './MartianLayout.scss'
+import { ASide, Main, NavBar } from '../components';
+import './MartianLayout.scss';
 
 export const MartianLayout = ({ children }: any) => {
     return (
@@ -9,8 +7,8 @@ export const MartianLayout = ({ children }: any) => {
             <NavBar />
             <ASide />
             <Main>
-                 {children}
+                {children}
             </Main>
         </div>
     )
-}
+};

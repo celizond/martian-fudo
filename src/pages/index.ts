@@ -1,3 +1,3 @@
-export * from './HomePage';
-export * from './LoginPage';
-export * from './PostPage';
+export * from './homePage/HomePage';
+export * from './loginPage/LoginPage';
+export * from './postPage/PostPage';

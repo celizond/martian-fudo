@@ -1,4 +1,4 @@
-import { ImageBox } from './ImageBox'
+import { ImageBox } from '../index'
 import './NavBar.scss'
 
 export const NavBar = () => {

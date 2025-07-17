@@ -1,3 +1,4 @@
-export * from './AddPost';
-export * from './NarrowPost';
-export * from './FeedPosts';
+export * from './addPost/AddPost';
+export * from './detailPost/DetailPost';
+export * from './narrowPost/NarrowPost';
+export * from './feedPosts/FeedPosts';

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { PrivateRouter } from './PrivateRouter';
-import { LoginPage } from '../pages/LoginPage';
+import { LoginPage } from '../pages/loginPage/LoginPage';
 import { PublicRouter } from './PublicRouter';
 import { MartianRouter } from './MartianRouter';
 
