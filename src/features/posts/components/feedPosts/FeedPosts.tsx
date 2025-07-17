@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../../../../services/api";
 import { NarrowPost } from "../index";
+import type { post } from "../../types/postTypes";
 
 export const FeedPosts = () => {
 
@@ -25,7 +26,7 @@ export const FeedPosts = () => {
         <>
             {first !== undefined &&
 
-                first.map((post: any) => (
+                first.map((post: post) => (
                     <NarrowPost
                         key={post.id}
                         {...post} />

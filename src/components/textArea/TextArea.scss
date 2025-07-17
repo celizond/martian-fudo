@@ -1,0 +1,15 @@
+@use '../../_variables' as *;
+
+textarea {
+    resize: none;
+    overflow-y: hidden;
+    width: 100%;
+    border: 0 none;
+    height: auto;
+    min-height: 32px;
+    line-height: 1.5;
+    height: auto;
+    color: $font-primary;
+    background-color: transparent;
+    font-size: 16px;
+}

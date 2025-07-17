@@ -1,5 +1,32 @@
-.main-page {
+@use '../../_variables' as *;
+
+.main {
     margin-left: 256px;
-    padding-top: 52px;
+    margin-top: 52px;
     overflow-y: auto;
+    max-width: 1000px;
+}
+
+//SCROLL
+.scrollable {
+  scrollbar-width: thin;             
+  scrollbar-color: $font-secondary $dark;
+}
+
+/* Webkit-based (Chrome, Safari) */
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: $dark;
+}
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: $font-secondary;
+  border-radius: 6px;
+  border: 2px solid $dark;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: $font-primary;
 }

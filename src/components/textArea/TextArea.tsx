@@ -1,4 +1,5 @@
 import { type ChangeEventHandler } from 'react';
+import './TextArea.scss';
 
 export type TextAreaProps = {
     name: string;

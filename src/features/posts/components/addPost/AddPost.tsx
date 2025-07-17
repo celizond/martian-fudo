@@ -1,5 +1,6 @@
 import { Button } from '../../../../components';
 import { ImageBox } from '../../../../components/imageBox/ImageBox';
+import { TextArea } from '../../../../components/textArea/TextArea';
 import { useForm } from '../../../../hooks/useForm';
 import './AddPost.scss';
 
@@ -27,14 +28,13 @@ export const AddPost = () => {
             <form
                 onSubmit={onSubmitPost}
                 className='post-form' >
-                <textarea
+                    <TextArea
                     name="post"
                     className='input-post'
                     placeholder='¿Qué querés compartir con los Martianos?'
                     value={post}
-                    onChange={onInputChange}>
+                    onChange={onInputChange} />
 
-                </textarea>
                 <Button type='submit' text='postear' onClick={onSubmitPost} />
             </form>
         </div>

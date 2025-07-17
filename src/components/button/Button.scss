@@ -1,14 +1,19 @@
 @use '../../_variables' as *;
 
 .my-button {
-    background-color: $dark;
-    color: $font-secondary;
-    padding: 8px;
-    border-radius: 8px;
-    border-color: $dark;
-    min-width: 100px;
-}
+    display: flex;
+    justify-content: flex-end;
 
-.my-button:disabled {
-    background-color: grey;
+    button {
+        background-color: $dark;
+        color: $font-secondary;
+        padding: 8px;
+        border-radius: 8px;
+        border-color: $dark;
+        min-width: 100px;
+    }
+
+    button:disabled {
+        background-color: grey;
+    }
 }

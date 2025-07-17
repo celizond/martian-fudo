@@ -1,4 +1,3 @@
-
 @use './variables' as *;
 
 .dashboard {
@@ -20,4 +19,10 @@ h2 {
     color: $font-primary;
     font-size: 24px;
     margin-bottom: 16px;
+}
+
+.shorten-content {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

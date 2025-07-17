@@ -16,12 +16,14 @@ export const Button = ({
 }: buttonProps) => {
 
   return (
-    <button
-      className='my-button'
+    <div className='my-button'>
+      <button
       type={type}
       onClick={onClick}
       disabled={disabled}>
       {text}
     </button>
+    </div>
+    
   )
 }
