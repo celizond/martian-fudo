@@ -7,9 +7,9 @@ import type { post } from '../../types/postTypes';
 export const FeedPosts = () => {
 
     const { data, isLoading, error } = useGetPosts();
-    console.log(data, isLoading, error)
+    
     return (
-        <section className='feed-posts'>
+        <section>
             { isLoading && <Spinner /> }
             { error && <ErrorMessage /> }
             { !isLoading && !error && data?.data?.map((post: post) => (

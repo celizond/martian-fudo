@@ -5,11 +5,12 @@ import { AddComment } from '../../features/comments/components/addComment/AddCom
 import { FeedComments } from '../../features/comments/components/feedComments/FeedComments';
 import { GoBack } from '../../components/goBack/GoBack';
 import './PostPage.scss'
+import type { post } from '../../features/posts';
 
 export const PostPage = () => {
 
     const { state } = useLocation();
-    const post = state?.post;
+    const post: post = state?.post;
 
     return (
         <MartianLayout>
@@ -18,7 +19,7 @@ export const PostPage = () => {
                 <DetailPost {...post} />
                 <AddComment />
                 <h2>Comentarios</h2>
-                <FeedComments />
+                <FeedComments postId={post.id}/>
             </>
         </MartianLayout>
     )

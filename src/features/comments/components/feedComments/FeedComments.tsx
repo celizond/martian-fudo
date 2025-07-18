@@ -1,29 +1,19 @@
+import { ErrorMessage, Spinner } from '../../../../components';
 import { DetailComment } from '../detailComment/DetailComment';
 import { useGetComments } from '../../hooks/useGetComments';
 import type { comment } from '../../types/commentTypes';
-import { Spinner } from '../../../../components/spinner/Spinner';
 
-export const FeedComments = () => {
+export const FeedComments = ({ postId }: { postId: string }) => {
 
-    const { data, isLoading, error } = useGetComments();
-
-    if (isLoading) {
-        return <Spinner />;
-    }
-    
-    if (error) {
-        return <> Error </>;
-    }
+    const { data, isLoading, error } = useGetComments(postId);
 
     return (
         <section>
-            { data &&
-                data?.data.map((comment: comment) => (
-                    <DetailComment
-                        key={comment.id}
-                        {...comment} />
-                ))
-            }
+            {isLoading && <Spinner />}
+            {error && <ErrorMessage />}
+            {!isLoading && !error && data?.data?.map((comment: comment) => (
+                <DetailComment key={comment.id} {...comment} />
+            )) }
         </section>
     )
 }

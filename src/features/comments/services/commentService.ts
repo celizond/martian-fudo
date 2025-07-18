@@ -8,8 +8,8 @@ export const commentService = {
         return api.get(url);;
     },
 
-    getComments: () => {
-        const url = '/post/4/comment';
+    getComments: (idPost: string) => {
+        const url = `/post/${idPost}/comment`;
         return api.get(url);
     },
 

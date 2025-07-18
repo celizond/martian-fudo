@@ -9,6 +9,7 @@ export const useGetPosts = () => {
             const data = await postService.getPosts();
             return data;
         },
+        refetchOnWindowFocus: true,
     });
 
     return {

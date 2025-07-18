@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Button, ImageBox } from '../../../../components';
+import { Button, ImageBox, Modal } from '../../../../components';
 import type { comment } from '../../types/commentTypes';
-import './DetailComment.scss';
-import Modal from '../../../../components/modal/Modal';
 import { AddComment } from '../addComment/AddComment';
 import { ViewMoreComments } from '../viewMoreComments/ViewMoreComments';
+import './DetailComment.scss';
 
 export const DetailComment = ({ name, avatar, content }: comment) => {
   const [isOpenModal, setIsOpenModal] = useState(false);

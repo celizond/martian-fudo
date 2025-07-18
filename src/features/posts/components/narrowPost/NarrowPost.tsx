@@ -1,23 +1,17 @@
-import { useNavigate } from 'react-router-dom';
-import { Button } from '../../../../components';
 import type { post } from '../../types/postTypes';
+import { ActionButtons } from '../../../../components/actionButtons/ActionButtons';
 import './NarrowPost.scss';
 
 export const NarrowPost = (post: post) => {
-    const { id, name, title, content } = post;
-    const navigate = useNavigate();
-
-    const onViewMore = () => {
-        navigate(`/post/${id}`, {state: {post}})
-    }
-
+    const { name, title, content } = post;
+    
     return (
         <article className='narrow-post'>
-            <span className='name'> {name} </span>
+            <span className='name'> {name} </span> 
             <hr />
             <span className='title shorten-content'> {title} </span>
             <p className='shorten-content'> {content} </p>
-            <Button text='Seguir leyendo' onClick={onViewMore} />
+            <ActionButtons {...post} />
         </article>
     )
 }
