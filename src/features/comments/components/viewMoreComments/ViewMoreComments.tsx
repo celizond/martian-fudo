@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Spinner } from '../../../../components/spinner/Spinner';
 import './ViewMoreComments.scss';
-import { FeedComments } from '../feedComments/FeedComments';
 
 export const ViewMoreComments = () => {
 
@@ -16,10 +15,10 @@ export const ViewMoreComments = () => {
             <div className='nested-comment'>
                 {
                     isOpenCommentaries &&
-                        false ?
+                        
                         <Spinner />
-                        :
-                        <FeedComments />
+                        
+                        
                 }
             </div>
 

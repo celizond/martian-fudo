@@ -9,6 +9,8 @@ export const useGetPosts = () => {
             return data;
         },
     });
+    
+    console.log('useGetPosts called', isLoading, error, data);
 
     return {
         isLoading,

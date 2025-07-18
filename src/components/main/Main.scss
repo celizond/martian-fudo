@@ -4,7 +4,9 @@
     margin-left: 256px;
     margin-top: 52px;
     overflow-y: auto;
-    max-width: 1000px;
+    max-width: 1000px;    
+    height: 100vh;
+    background-color: $dark;
 }
 
 .scrollable {

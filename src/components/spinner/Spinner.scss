@@ -1,16 +1,22 @@
 @use '../../_variables' as *;
 
-.spinner {
-  width: 36px;
-  height: 36px;
-  border-top: 4px solid $light-secondary; /* Cambiá el color si querés */
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin: auto;
-}
+.spinner-container {
+  margin-top: 8px;
+  padding-block: 36px;
+  background-color: $primary;
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+  .spinner {
+    width: 36px;
+    height: 36px;
+    border-top: 4px solid $light-secondary;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: auto;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
