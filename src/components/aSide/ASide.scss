@@ -12,7 +12,19 @@ aside {
     font-weight: 400;
     color: $light-primary;
     border-top: 2px solid $primary;
-}
 
-/* 
-    text-decoration: none; */
+    ul {
+        font-size: $big;
+        list-style: none;
+        font-weight: 500;
+
+        li {
+            cursor: pointer;
+            padding-bottom: 8px;
+        }
+
+        li:hover {
+            color: $light-secondary;
+        }
+    }
+}
