@@ -22,13 +22,13 @@ export const FeedComments = () => {
 
     return (
         <section>
-            {first !== undefined &&
+            {/* {first !== undefined &&
                 first.map((comment: comment) => (
                     <DetailComment
                         key={comment.id}
                         {...comment} />
                 ))
-            }
+            } */}
         </section>
     )
 }
