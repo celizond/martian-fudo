@@ -10,25 +10,21 @@ import { AuthContext } from '../../features/auth/context';
 export const ActionButtons = (post: post) => {
 
     const { user } = useContext(AuthContext);
-    const { modalMessage, loadingDelete, isOpenModal, setIsOpenModal, onDelete, onUpdate, onViewMore } = useActionsPost(post);
+    const { modalMessage, loadingDelete, isOpenModal, onQuitModal, onDelete, onUpdate, onViewMore } = useActionsPost(post);
 
     return (
         <div className="my-action-buttons">
             {loadingDelete && <Spinner />}
             {user.name === post.name &&
                 <>
-                    <button onClick={onDelete}>
-                        Eliminar
-                    </button>
-                    <button onClick={onUpdate}>
-                        Actualizar
-                    </button>
+                    <Button style='btn-delete' text='Eliminar' onClick={onDelete} />
+                    <Button style='btn-update' text='Modificar' onClick={onUpdate} />
                 </>
             }
             <Button text='Seguir leyendo' onClick={onViewMore} />
 
-            <Modal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}>
-                {modalMessage}
+            <Modal isOpen={isOpenModal} onClose={onQuitModal}>
+                <div className='modal-message'>{modalMessage}</div>
             </Modal>
         </div>
     )

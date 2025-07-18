@@ -16,7 +16,6 @@ export const AddPost = () => {
 
     const onSubmitPost = async (event: any) => {
         event.preventDefault();
-        if (title.length < 1 || content.length < 1) return;
         postService.createPost({ ...formState, name, avatar });
         onResetForm();
     }
@@ -42,7 +41,7 @@ export const AddPost = () => {
                     value={content}
                     onChange={onInputChange} />
 
-                <Button type='submit' text='postear' onClick={onSubmitPost} />
+                <Button type='submit' text='postear' disabled={(title.length < 1 && content.length < 1 )} onClick={onSubmitPost} />
             </form>
         </div>
     )

@@ -1,12 +1,14 @@
 @use '../../_variables' as *;
 
 .my-button {
-    display: flex;
-    justify-content: flex-end;
+
+    &:has(.btn-continue) {
+        display: flex;
+        justify-content: flex-end;
+    }
 
     button {
         cursor: pointer;
-        background-color: $dark;
         color: $light-secondary;
         border-color: $dark;
         padding: 8px;
@@ -14,15 +16,25 @@
         min-width: 110px;
     }
 
-    button:hover {
+    button:disabled {
+        cursor: no-drop;
+    }
+
+    .btn-continue {
+        background-color: $dark;
+    }
+
+    .btn-continue:hover {
         background-color: $dark-secondary;
         color: $light-tertiary;
     }
 
-    button:disabled {
-        cursor: no-drop;
-        background-color: $light-tertiary;
-        color: $light-primary;
-        border-color: $light-secondary;
+    .btn-delete {
+        background-color: #630909a1;
+        margin-bottom: 4px;
+    }
+
+    .btn-update {
+        background-color: #113d05a1;
     }
 }
