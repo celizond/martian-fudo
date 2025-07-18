@@ -2,8 +2,13 @@
 
 .go-back {
     background-color: $tertiary;
+    color: $light-tertiary;
     font-size: $big;
-    
+    font-weight: 600;
     padding: 8px 16px;
     width: calc(100% - 32px);
+
+    a {
+        cursor: pointer;
+    }
 }

@@ -1,27 +1,28 @@
-import { ImageBox } from '../index'
-import './NavBar.scss'
+import { useContext } from 'react';
+import { AuthContext } from '../../features/auth/context';
+import { ImageBox } from '../index';
+import logo from '../../assets/martian-logo.svg';
+import './NavBar.scss';
 
 export const NavBar = () => {
 
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    
+    const { user } = useContext(AuthContext)
+
     return (
         <nav className='navbar'>
             <div className='application'>
-                <ImageBox 
-                src='https://upload.wikimedia.org/wikipedia/commons/d/de/Color-Green.JPG'
-                alt='application-photo' />
-
-                <input type='text' className='' placeholder='Buscar' />
+                <ImageBox
+                    src={logo}
+                    alt='application-photo' />
             </div>
             <div className='profile'>
                 <span className='user'>
-                    {user?.name}
+                    {user.name}
                 </span>
-                <ImageBox 
-                src={user?.avatar}
-                alt='profile-user-photo' />
-                
+                <ImageBox
+                    src={user.avatar}
+                    alt='profile-user-photo' />
+
             </div>
         </nav>
     )

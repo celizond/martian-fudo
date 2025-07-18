@@ -8,16 +8,16 @@ export const postService = {
         return api.get(url);;
     },
 
-    getPosts: async() => {
-        
-    await new Promise( resolve => setTimeout(resolve, 15500) );
+    getPosts: async () => {
+        //await new Promise(resolve => setTimeout(resolve, 15500));
         const url = '/post';
         return api.get(url);
     },
 
-    createPost: (postData: post) => {
+    createPost: (content: Partial<post>) => {
         const url = `/post`;
-        return api.post(url, postData);
+        const post = { ...content }
+        return api.post(url, post);
     },
 
     updatePosts: (idPost: string) => {
