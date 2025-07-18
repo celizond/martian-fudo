@@ -1,0 +1,10 @@
+@use '../../_variables' as *;
+
+.error-message {
+    background-color: $tertiary;
+    color: $light-primary;
+    padding: 16px;
+    font-weight: 500;
+    text-align: center;
+    font-size: $big;
+}

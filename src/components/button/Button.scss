@@ -5,16 +5,24 @@
     justify-content: flex-end;
 
     button {
+        cursor: pointer;
         background-color: $dark;
         color: $light-secondary;
+        border-color: $dark;
         padding: 8px;
         border-radius: 8px;
-        border-color: $dark;
         min-width: 110px;
-        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: $dark-secondary;
+        color: $light-tertiary;
     }
 
     button:disabled {
-        background-color: grey;
+        cursor: no-drop;
+        background-color: $light-tertiary;
+        color: $light-primary;
+        border-color: $light-secondary;
     }
 }

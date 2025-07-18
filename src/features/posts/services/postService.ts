@@ -9,7 +9,6 @@ export const postService = {
     },
 
     getPosts: async () => {
-        //await new Promise(resolve => setTimeout(resolve, 15500));
         const url = '/post';
         return api.get(url);
     },

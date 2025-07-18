@@ -8,28 +8,12 @@
     padding: 8px 16px;
     width: calc(100% - 32px);
     justify-content: space-between;
-    align-items: center;/* 
-    border-bottom: 1px solid $primary; */
+    align-items: center;
     z-index: 10;
     position: fixed;
 
     .application {
-        display: flex;
-
-        .logo {
-            color: white;
-        }
-
-        input {
-            border-radius: 16px;
-            outline: none;
-            background-color: $dark;
-            padding: 6px;
-            width: 160px;
-            margin-left: 16px;
-            text-align: center;
-            font-size: 14px;
-        }
+        height: 36px;
     }
 
     .profile {
@@ -38,8 +22,8 @@
 
         .user {
             color: whitesmoke;
-            padding-right: 16px;
-            font-size: 18px;
+            padding-right: $med;
+            font-size: $big;
             font-weight: 700;
         }
     }
