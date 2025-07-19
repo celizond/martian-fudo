@@ -19,6 +19,7 @@ export const commentService = {
         const createdAt = updateDate.toISOString();
         const url = `/post/${idPost}/comment`;
         const comment = { ...content, createdAt: createdAt, parentId: parentId };
+        console.log('Creating comment:', comment, ' - ', content);
         return api.post(url, comment);
     },
 

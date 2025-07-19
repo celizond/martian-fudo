@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { MoreComments } from '../moreComments/MoreComments';
+//import { MoreComments } from '../moreComments/MoreComments';
 import './ViewMoreComments.scss';
+import { MoreComments } from '../moreComments/MoreComments';
 
 export const ViewMoreComments = ({id}:any) => {
 

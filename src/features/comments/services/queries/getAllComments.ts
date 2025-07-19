@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { commentService } from '../commentService';
+import type { comment } from '../../types/commentTypes';
 
 export const useGetAllComments = (idPost: string) => {
     
@@ -14,10 +15,15 @@ export const useGetAllComments = (idPost: string) => {
         refetchOnWindowFocus: true,
     });
 
+    const mainComments = data?.filter((comment: comment) => comment.parentId === null);
+    const nestedCommentsById = (idComment:string) => data?.filter((comment: comment) => comment.parentId === idComment);
+
     return {
         isLoading,
         error,
         data,
+        mainComments,
+        nestedCommentsById,
     };
 
 };

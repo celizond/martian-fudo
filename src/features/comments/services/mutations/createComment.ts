@@ -5,6 +5,7 @@ import type { comment } from '../../types/commentTypes';
 import { useLocation } from 'react-router-dom';
 
 export const useCreateComment = (parentId: null | string, comment: Partial<comment>) => {
+  
   const queryClient = useQueryClient();
   const { state } = useLocation();
   const post: post = state?.post;
