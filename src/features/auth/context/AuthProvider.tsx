@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import { AuthContext } from "./AuthContext";
 import { authReducer } from "./authReducer";
+import type { reactChildrenProps } from "../../../types/generic.types";
 
 const init = () => {
     const userString = localStorage.getItem('user');
@@ -8,7 +9,7 @@ const init = () => {
     return { logged: !!user, user };
 }
 
-export const AuthProvider = ({ children }:any) => {
+export const AuthProvider = ({ children }: reactChildrenProps) => {
 
     const [authState, dispatch] = useReducer(authReducer, {}, init);
 

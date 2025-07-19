@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import type { eventType } from '../types/commonComponents.types';
 
 export const useModalActions = () => {
 
     const [isOpenModal, setIsOpenModal] = useState(false);
-    const [modalMessage, setModalMessage] = useState<any>('');
+    const [modalMessage, setModalMessage] = useState('');
     const [isUpdating, setIsUpdating] = useState(false)
 
     const handlerQuitModal = () => {
@@ -16,7 +17,7 @@ export const useModalActions = () => {
         setIsOpenModal(true);
     }
 
-    const handlerSubmitAction = async(event: any, continueFn: () => Promise<void>) => {
+    const handlerSubmitAction = async(event: eventType, continueFn: () => Promise<void>) => {
         event.preventDefault();
         await continueFn();
         handlerQuitModal();

@@ -3,6 +3,7 @@ import { AuthContext } from "../../features/auth/context";
 import { useForm } from "../../hooks/useForm";
 import './LoginPage.scss';
 import { Button } from "../../components";
+import type { eventType } from "../../types/commonComponents.types";
 
 export const LoginPage = () => {
 
@@ -14,7 +15,7 @@ export const LoginPage = () => {
 
   const { name, avatar } = formState;
 
-  const onLogin = (event: any) => {
+  const onLogin = (event: eventType) => {
     event.preventDefault();
     login(name, avatar);
   }

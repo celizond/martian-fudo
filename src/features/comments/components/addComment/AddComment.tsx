@@ -1,12 +1,10 @@
 import { useContext } from 'react';
-import { Button } from '../../../../components';
-import { ImageBox } from '../../../../components/imageBox/ImageBox';
-import { TextArea } from '../../../../components/textArea/TextArea';
+import { Button, ImageBox, SpinnerBtn, TextArea } from '../../../../components';
 import { useForm } from '../../../../hooks/useForm';
 import { AuthContext } from '../../../auth/context';
-import { SpinnerBtn } from '../../../../components/spinnerBtn/SpinnerBtn';
-import './AddComment.scss';
 import { useGenerateComment } from '../../hooks/useGenerateComment';
+import './AddComment.scss';
+import type { eventType } from '../../../../types/commonComponents.types';
 
 export const AddComment = () => {//aca va a ir parentId y anotherFn
 
@@ -16,7 +14,7 @@ export const AddComment = () => {//aca va a ir parentId y anotherFn
     const { name, avatar } = user;
     const { createLoading, onCreate } = useGenerateComment(null, { content, name, avatar });
 
-    const onSubmitComment = async (event: any) => {
+    const onSubmitComment = async (event: eventType) => {
         event.preventDefault();
         await onCreate();
         onResetForm();

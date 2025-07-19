@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import type { keyValueType } from '../types/generic.types';
 
-export const useForm = ( initialForm: {[key: string]: any} ) => {
+export const useForm = ( initialForm: keyValueType ) => {
 
     const [formState, setFormState] = useState(initialForm)
 

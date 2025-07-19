@@ -1,13 +1,7 @@
+import type { ImageBoxProps } from '../../types/commonComponents.types';
 import './ImageBox.scss';
 
-export interface imageBoxProps {
-    src: string;
-    alt: string;
-    height?: number;
-    width?: number;
-}
-//Poner una imagen por defecto
-export const ImageBox = ({src, alt, height=36, width=36}: imageBoxProps) => {
+export const ImageBox = ({src, alt, height=36, width=36}: ImageBoxProps) => {
     return (
         <img
             className='photo'

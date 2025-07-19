@@ -11,7 +11,7 @@ export const ASide = () => {
   const currentPath = location.pathname;
 
   const onGoHome = () => {
-    navigate('/home')
+    navigate('/home');
   }
 
   return (

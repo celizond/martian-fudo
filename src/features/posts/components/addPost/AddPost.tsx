@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { useForm } from '../../../../hooks/useForm';
 import { AuthContext } from '../../../auth/context';
-import './AddPost.scss';
 import { useGeneratePost } from '../../hooks/useGeneratePost';
-import { Button, ImageBox, TextArea } from '../../../../components';
-import { SpinnerBtn } from '../../../../components/spinnerBtn/SpinnerBtn';
+import { Button, ImageBox, SpinnerBtn, TextArea } from '../../../../components';
+import './AddPost.scss';
+import type { eventType } from '../../../../types/generic.types';
 
 export const AddPost = () => {
 
@@ -14,10 +14,10 @@ export const AddPost = () => {
     const { name, avatar } = user;
     const { createLoading, onCreate } = useGeneratePost({ title, content, name, avatar })
 
-    const onSubmitPost = async (event: any) => {
+    const onSubmitPost = async (event: eventType) => {
         event.preventDefault();
         await onCreate();
-        onResetForm()
+        onResetForm();
     }
 
     return (

@@ -1,8 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { PrivateRouter } from './PrivateRouter';
-import { LoginPage } from '../pages/loginPage/LoginPage';
-import { PublicRouter } from './PublicRouter';
-import { MartianRouter } from './MartianRouter';
+import { MartianRouter, PrivateRouter, PublicRouter } from './index';
+import { LoginPage } from '../pages';
 
 export const AppRouter = () => {
   return (

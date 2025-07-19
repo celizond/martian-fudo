@@ -1,12 +1,11 @@
 import { useContext } from 'react';
-import { Button, Modal, Spinner, TextArea } from '../../../../components/index';
+import { Button, Modal, Spinner, SpinnerBtn, TextArea } from '../../../../components/index';
 import { AuthContext } from '../../../auth/context';
-import { SpinnerBtn } from '../../../../components/spinnerBtn/SpinnerBtn';
 import { useForm } from '../../../../hooks/useForm';
 import { useActionsPost } from '../../hooks/useActionsPost';
 import type { post } from '../../types/postTypes';
 import './ActionPostButtons.scss';
-import { useModalActions } from '../../hooks/useModalActions';
+import { useModalActions } from '../../../../hooks/useModalActions';
 
 export type ActionPostButtonsProps = {
     post: post;

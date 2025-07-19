@@ -1,13 +1,6 @@
-import type { MouseEventHandler } from 'react';
-import './Button.scss';
 
-export type buttonProps = {
-  text: string;
-  style?: string;
-  type?: 'button' | 'submit' | 'reset';
-  disabled?: boolean;
-  onClick: MouseEventHandler<HTMLButtonElement>;
-}
+import type { ButtonProps } from '../../types/commonComponents.types';
+import './Button.scss';
 
 export const Button = ({
   text,
@@ -15,7 +8,7 @@ export const Button = ({
   type = 'button',
   disabled = false,
   onClick
-}: buttonProps) => {
+}: ButtonProps) => {
 
   return (
     <div className='my-button'>
