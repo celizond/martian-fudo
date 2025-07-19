@@ -11,14 +11,14 @@ export const ASide = () => {
   const currentPath = location.pathname;
 
   const onGoHome = () => {
-    navigate('/home')
+    navigate('/martian-fudo/home')
   }
 
   return (
     <aside>
       <ul>
         {/*  <li onClick={onGoHome}>&#128100; MIS POSTS</li> */}
-        <li className={currentPath === '/home' ? 'active' : ''} onClick={onGoHome}>&#127968; Feed</li>
+        <li className={currentPath === '/martian-fudo/home' ? 'active' : ''} onClick={onGoHome}>&#127968; Feed</li>
         <li onClick={logout}>&#128162; Salir</li>
       </ul>
     </aside>

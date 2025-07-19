@@ -30,7 +30,7 @@ export const useActionsPost = (post: post) => {
     }
 
     const handlerViewMore = () => {
-        navigate(`/post/${id}`, { state: { post } })
+        navigate(`/martian-fudo/post/${id}`, { state: { post } })
     }
 
     const onDelete = async () => {
