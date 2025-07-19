@@ -1,8 +1,10 @@
-import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../features/auth/context/AuthContext';
+import { useContext } from 'react';
 
 export const PublicRouter = ({children}:any) => {
-    const { logged } = useContext(AuthContext);
-    return (!logged ? children : <Navigate to='/martian-fudo/home' />)
+
+    const { logged } = useContext(AuthContext)
+    console.log(logged)
+    return (!logged ? children : <Navigate to='/' />)
 }

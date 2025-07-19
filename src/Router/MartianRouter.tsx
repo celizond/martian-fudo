@@ -4,10 +4,10 @@ import { HomePage, PostPage } from "../pages";
 export const MartianRouter = () => {
   return (
     <Routes>
-        <Route path='/martian-fudo/home' element={<HomePage />} />
-        <Route path='/martian-fudo/post/:id' element={<PostPage />} />
+        <Route path='/home' element={<HomePage />} />
+        <Route path='/post/:id' element={<PostPage />} />
         
-        <Route path='/*' element={<Navigate to='/martian-fudo/home'/>} />
+        <Route path='/*' element={<Navigate to='/home'/>} />
     </Routes>
   )
 }

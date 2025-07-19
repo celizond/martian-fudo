@@ -8,7 +8,7 @@ export const AppRouter = () => {
   return (
     <>
       <Routes>
-        <Route path='/martian-fudo/login' element={
+        <Route path='/login' element={
           <PublicRouter>
             <LoginPage />
           </PublicRouter>}
