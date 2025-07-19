@@ -1,12 +1,10 @@
 import { useContext } from 'react';
-import { Button, Spinner } from '../../../../components';
-import { ImageBox } from '../../../../components/imageBox/ImageBox';
-import { TextArea } from '../../../../components/textArea/TextArea';
 import { useForm } from '../../../../hooks/useForm';
 import { AuthContext } from '../../../auth/context';
-import './AddPost.scss';
 import { useCreatePost } from '../../hooks/useCreatePost';
 import { SpinnerBtn } from '../../../../components/spinnerBtn/SpinnerBtn';
+import { Button, ImageBox, TextArea } from '../../../../components';
+import './AddPost.scss';
 
 export const AddPost = () => {
 

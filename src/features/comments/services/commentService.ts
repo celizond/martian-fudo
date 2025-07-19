@@ -13,9 +13,13 @@ export const commentService = {
         return api.get(url);
     },
 
-    createComment: (commentData: comment) => {
-        const url = `/post/2/comment`;
-        return api.post(url, commentData);
+    createComment: (parentId: null | string, postId:string, content: Partial<comment>) => {
+        const currentDate = new Date();
+        const updateDate = new Date(currentDate.getTime() - 3 * 60 * 60 * 1000);
+        const createdAt = updateDate.toISOString();
+        const url = `/post/${postId}/comment`;
+        const comment = { ...content, createdAt: createdAt, parentId: parentId };
+        return api.post(url, comment);
     },
 
     updateComments: (idComment: string) => {

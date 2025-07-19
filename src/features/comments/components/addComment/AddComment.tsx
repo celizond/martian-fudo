@@ -1,23 +1,25 @@
+import { useContext } from 'react';
 import { Button } from '../../../../components';
 import { ImageBox } from '../../../../components/imageBox/ImageBox';
 import { TextArea } from '../../../../components/textArea/TextArea';
 import { useForm } from '../../../../hooks/useForm';
+import { AuthContext } from '../../../auth/context';
+import { useCreateComment } from '../../hooks/useCreateComment';
+import { SpinnerBtn } from '../../../../components/spinnerBtn/SpinnerBtn';
 import './AddComment.scss';
 
-export const AddComment = ({idPost, anotherFn}: any) => {
+export const AddComment = () => {//aca va a ir parentId y anotherFn
 
-    const { formState, onInputChange, onResetForm } = useForm({
-        comment: ''
-    })
-    const { comment } = formState;
+    const { formState, onInputChange, onResetForm } = useForm({ content: '' })
+    const { content } = formState;
+    const { user } = useContext(AuthContext);
+    const { name, avatar } = user;
+    const { loadingCreate, onComment } = useCreateComment( null, { content, name, avatar });
 
     const onSubmitComment = async (event: any) => {
         event.preventDefault();
-        if (comment.length < 1) return;
-        console.log('envio de info de comment a back: ',idPost, comment.trim());
-        //Obtener del context el usuario que manda+
+        await onComment();
         onResetForm();
-        anotherFn && anotherFn()
     }
 
     return (
@@ -29,10 +31,12 @@ export const AddComment = ({idPost, anotherFn}: any) => {
                 onSubmit={onSubmitComment}
                 className='comment-form' >
                 <TextArea
-                    name="comment"
+                    name='content'
                     placeholder={`Comenta tu respuesta`}
-                    value={comment}
+                    value={content}
                     onChange={onInputChange} />
+
+                {loadingCreate && <SpinnerBtn />}
 
                 <Button type='submit' text='Enviar' onClick={onSubmitComment} />
             </form>

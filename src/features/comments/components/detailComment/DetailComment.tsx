@@ -27,7 +27,7 @@ export const DetailComment = ({ id, name, avatar, content }: comment) => {
 
       <Modal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}>
         <h4>Responde el comentario de {name}</h4>
-        <AddComment anotherFn={() => setIsOpenModal(false)} />
+        <AddComment /* anotherFn={() => setIsOpenModal(false)} */ />
       </Modal>
 
     </div>
