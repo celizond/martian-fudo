@@ -1,11 +1,12 @@
 import { useContext } from 'react';
-import { Button } from '../../../../components';
+import { Button, Spinner } from '../../../../components';
 import { ImageBox } from '../../../../components/imageBox/ImageBox';
 import { TextArea } from '../../../../components/textArea/TextArea';
 import { useForm } from '../../../../hooks/useForm';
-import { postService } from '../../services/postService';
 import { AuthContext } from '../../../auth/context';
 import './AddPost.scss';
+import { useCreatePost } from '../../hooks/useCreatePost';
+import { SpinnerBtn } from '../../../../components/spinnerBtn/SpinnerBtn';
 
 export const AddPost = () => {
 
@@ -13,11 +14,12 @@ export const AddPost = () => {
     const { title, content } = formState;
     const { user } = useContext(AuthContext);
     const { name, avatar } = user;
+    const { loadingCreate, onPost } = useCreatePost({ title, content, name, avatar });
 
     const onSubmitPost = async (event: any) => {
         event.preventDefault();
-        postService.createPost({ ...formState, name, avatar });
-        onResetForm();
+        await onPost();
+        onResetForm()
     }
 
     return (
@@ -30,18 +32,18 @@ export const AddPost = () => {
                 className='post-form' >
                 <TextArea
                     name="title"
-                    className='textarea-title'
                     placeholder='Título de post'
                     value={title}
                     onChange={onInputChange} />
                 <TextArea
                     name="content"
-                    className='textarea-content'
                     placeholder='¿Qué querés compartir con los Martianos?'
                     value={content}
                     onChange={onInputChange} />
 
-                <Button type='submit' text='postear' disabled={(title.length < 1 && content.length < 1 )} onClick={onSubmitPost} />
+                {loadingCreate && <SpinnerBtn />}
+
+                <Button type='submit' text='Postear' disabled={(title.length < 1 && content.length < 1)} onClick={onSubmitPost} />
             </form>
         </div>
     )

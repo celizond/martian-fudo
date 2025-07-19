@@ -1,0 +1,6 @@
+@use '../../../../_variables' as *;
+.nested-sub-comments {
+    margin-left: 16px;
+    border-left: 4px solid $dark;
+    border-bottom: 4px solid $dark;
+}

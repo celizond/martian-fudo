@@ -1,19 +1,22 @@
+import { useGetNestedComments } from '../../hooks/useGetNestedComments';
+import type { comment } from '../../types/commentTypes';
 import { ErrorMessage, Spinner } from '../../../../components';
 import { DetailComment } from '../detailComment/DetailComment';
-import type { comment } from '../../types/commentTypes';
-import { useGetMainComments } from '../../hooks/useGetMainComments copy';
+import './MoreComments.scss';
 
-export const FeedComments = ({ postId }: { postId: string }) => {
+export const MoreComments = ({ id }: any) => {
 
-    const { data, isLoading, error } = useGetMainComments(postId);
+    const { isLoading, error, data } = useGetNestedComments('1', id)
 
     return (
-        <section>
+        <section className='nested-sub-comments'>
             {isLoading && <Spinner />}
             {error && <ErrorMessage />}
             {!isLoading && !error && data?.map((comment: comment) => (
                 <DetailComment key={comment.id} {...comment} />
-            )) }
+            ))}
         </section>
     )
 }
+
+

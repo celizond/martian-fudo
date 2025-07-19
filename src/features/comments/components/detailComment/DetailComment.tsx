@@ -5,7 +5,7 @@ import { AddComment } from '../addComment/AddComment';
 import { ViewMoreComments } from '../viewMoreComments/ViewMoreComments';
 import './DetailComment.scss';
 
-export const DetailComment = ({ name, avatar, content }: comment) => {
+export const DetailComment = ({ id, name, avatar, content }: comment) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
@@ -22,7 +22,7 @@ export const DetailComment = ({ name, avatar, content }: comment) => {
       </article>
 
       <footer className='comment-actions'>
-        <ViewMoreComments />
+        <ViewMoreComments id={id} />
       </footer>
 
       <Modal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}>

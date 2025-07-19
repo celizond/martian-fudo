@@ -1,11 +1,11 @@
-import type { post } from '../../features/posts';
-import { Button } from '../button/Button';
-import { useActionsPost } from '../../features/posts/hooks/useActionsPost';
+import type { post } from '../..';
+import { Button } from '../../../../components/button/Button';
+import { useActionsPost } from '../../hooks/useActionsPost';
 import './ActionButtons.scss';
-import { Modal } from '../modal/Modal';
-import { Spinner } from '../spinner/Spinner';
+import { Modal } from '../../../../components/modal/Modal';
+import { Spinner } from '../../../../components/spinner/Spinner';
 import { useContext } from 'react';
-import { AuthContext } from '../../features/auth/context';
+import { AuthContext } from '../../../auth/context';
 
 export const ActionButtons = (post: post) => {
 

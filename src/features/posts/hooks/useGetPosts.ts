@@ -6,8 +6,9 @@ export const useGetPosts = () => {
     const { data, error, isLoading } = useQuery({
         queryKey: ['posts'],
         queryFn: async () => {
-            const data = await postService.getPosts();
-            return data;
+            const res = await postService.getPosts();
+            res.data.sort((a:any, b:any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            return res.data;
         },
         refetchOnWindowFocus: true,
     });

@@ -1,13 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { commentService } from '../services/commentService';
+import type { comment } from '../types/commentTypes';
 
-export const useGetComments = (idPost: string) => {
+export const useGetMainComments = (idPost: string) => {
     
     const { data, error, isLoading } = useQuery({
-        queryKey: ['comments'],
+        queryKey: ['main comments'],
         queryFn: async () => {
             const data = await commentService.getComments(idPost);
-            return data;
+            const filteredData = data.data.filter((comment: comment) =>  comment.parentId == null) 
+            return filteredData;
         },
         refetchOnWindowFocus: true,
     });

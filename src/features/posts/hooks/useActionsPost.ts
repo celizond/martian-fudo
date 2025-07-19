@@ -21,7 +21,7 @@ export const useActionsPost = (post: post) => {
         setLoadingDelete(true);
         try {
             await postService.deletePosts(id);
-            await new Promise(resolve => setTimeout(resolve, 2500));
+            //await new Promise(resolve => setTimeout(resolve, 1000));
             setModalMessage(`Post #${id} eliminado`);
             setLoadingDelete(false);
         } catch (err) {

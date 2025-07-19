@@ -12,7 +12,7 @@ export const FeedPosts = () => {
         <section>
             { isLoading && <Spinner /> }
             { error && <ErrorMessage /> }
-            { !isLoading && !error && data?.data?.map((post: post) => (
+            { !isLoading && !error && data?.map((post: post) => (
                 <NarrowPost key={post.id} {...post} />
             ))}
         </section>

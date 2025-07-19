@@ -1,5 +1,5 @@
 import type { post } from '../../types/postTypes';
-import { ActionButtons } from '../../../../components/actionButtons/ActionButtons';
+import { ActionButtons } from '../actionButtons/ActionButtons';
 import './NarrowPost.scss';
 
 export const NarrowPost = (post: post) => {

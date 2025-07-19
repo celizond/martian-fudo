@@ -30,7 +30,6 @@ export const AddComment = ({idPost, anotherFn}: any) => {
                 className='comment-form' >
                 <TextArea
                     name="comment"
-                    className='input-comment'
                     placeholder={`Comenta tu respuesta`}
                     value={comment}
                     onChange={onInputChange} />

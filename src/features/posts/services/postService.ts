@@ -14,8 +14,11 @@ export const postService = {
     },
 
     createPost: (content: Partial<post>) => {
+        const currentDate = new Date();
+        const updateDate = new Date(currentDate.getTime() - 3 * 60 * 60 * 1000);
+        const createdAt = updateDate.toISOString();
         const url = `/post`;
-        const post = { ...content }
+        const post = { ...content, createdAt: createdAt };
         return api.post(url, post);
     },
 

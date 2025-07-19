@@ -5,18 +5,17 @@ aside {
     top: 52px;
     bottom: 0;
     left: 0;
-    width: 256px;
+    width: 220px;
     overflow-y: auto;
     display: flex;
     background-color: $dark;
-    font-weight: 400;
     color: $light-primary;
     border-top: 2px solid $primary;
 
     ul {
         font-size: $big;
         list-style: none;
-        font-weight: 500;
+        font-weight: 400;
 
         li {
             cursor: pointer;
@@ -25,6 +24,10 @@ aside {
 
         li:hover {
             color: $light-secondary;
+        }
+
+        .active {
+            color: $tertiarytwo;
         }
     }
 }

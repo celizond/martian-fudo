@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { Spinner } from '../../../../components/spinner/Spinner';
+import { MoreComments } from '../moreComments/MoreComments';
 import './ViewMoreComments.scss';
 
-export const ViewMoreComments = () => {
+export const ViewMoreComments = ({id}:any) => {
 
     const [isOpenCommentaries, setIsOpenCommentaries] = useState(false);
-    //llamo al customhook para ver si está cargando y eso
-
+    
     return (
         <div className='view-more-comments'>
             <a target='_self' rel='noopener noreferrer' onClick={() => setIsOpenCommentaries(!isOpenCommentaries)}>
@@ -15,13 +14,9 @@ export const ViewMoreComments = () => {
             <div className='nested-comment'>
                 {
                     isOpenCommentaries &&
-                        
-                        <Spinner />
-                        
-                        
+                    <MoreComments id={id}/>
                 }
             </div>
-
         </div>
     )
 }
