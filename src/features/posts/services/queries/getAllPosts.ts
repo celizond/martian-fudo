@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { postService } from '../services/postService';
+import { postService } from '../postService';
 
-export const useGetPosts = () => {
+export const useGetAllPosts = () => {
     
     const { data, error, isLoading } = useQuery({
         queryKey: ['posts'],

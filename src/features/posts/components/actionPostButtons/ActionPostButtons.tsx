@@ -6,24 +6,35 @@ import { useForm } from '../../../../hooks/useForm';
 import { useActionsPost } from '../../hooks/useActionsPost';
 import type { post } from '../../types/postTypes';
 import './ActionPostButtons.scss';
+import { useModalActions } from '../../hooks/useModalActions';
 
 export type ActionPostButtonsProps = {
     post: post;
     threeButtons?: boolean;
 }
 
-export const ActionPostButtons = ({post, threeButtons = false}: ActionPostButtonsProps) => {
+export const ActionPostButtons = ({ post, threeButtons = false }: ActionPostButtonsProps) => {
 
     const { user } = useContext(AuthContext);
-    const { formState, onInputChange } = useForm({ title: post.title, content: post.content });
-    const { modalMessage, loadingDelete, loadingUpdate, isOpenModal, isEditing,
-        handlerQuitModal, handlerViewMore, handlerUpdate, handlerSubmitUpdate, onDelete } = useActionsPost(post);
+    const { 
+        formState, 
+        onInputChange, 
+    } = useForm({ title: post.title, content: post.content });
+    const {
+        deleteLoading,
+        updateLoading,
+        handlerViewMore, onDelete, onUpdate,
+    } = useActionsPost(post, formState);
+    const {
+        modalMessage, isOpenModal, isUpdating,
+        handlerQuitModal, handlerUpdate, handlerSubmitAction,
+    } = useModalActions();
 
     return (
         <div className="action-post-buttons">
 
             <div className="action-buttons">
-                {loadingDelete && <Spinner />}
+                {deleteLoading && <Spinner />}
                 {user.name === post.name &&
                     <>
                         <Button style='btn-delete' text='Eliminar' onClick={onDelete} />
@@ -37,16 +48,16 @@ export const ActionPostButtons = ({post, threeButtons = false}: ActionPostButton
                 <div className='modal-content'>
                     {modalMessage ?
                         <div className='modal-message'>{modalMessage}</div> :
-                        loadingUpdate ?
+                        updateLoading ?
                             <SpinnerBtn /> :
-                            isEditing &&
+                            isUpdating &&
                             <form
-                                onSubmit={e => handlerSubmitUpdate(e, formState)}
+                                onSubmit={e => handlerSubmitAction(e, () => onUpdate())}
                                 className='update-form' >
                                 <TextArea name='title' value={formState.title} onChange={onInputChange} />
                                 <TextArea name='content' value={formState.content} onChange={onInputChange} />
 
-                                <Button text='Postear' onClick={e => handlerSubmitUpdate(e, formState)} />
+                                <Button text='Postear' onClick={e => handlerSubmitAction(e, () => onUpdate())} />
                             </form>
                     }
                 </div>

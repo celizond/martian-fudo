@@ -1,12 +1,12 @@
 
 import { ErrorMessage, Spinner } from '../../../../components';
 import { NarrowPost } from '../index';
-import { useGetPosts } from '../../hooks/useGetPosts';
 import type { post } from '../../types/postTypes';
+import { useGetAllPosts } from '../../services/queries/getAllPosts';
 
 export const FeedPosts = () => {
 
-    const { data, isLoading, error } = useGetPosts();
+    const { data, isLoading, error } = useGetAllPosts();
     
     return (
         <section>

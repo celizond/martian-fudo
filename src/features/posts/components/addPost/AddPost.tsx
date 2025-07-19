@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { useForm } from '../../../../hooks/useForm';
 import { AuthContext } from '../../../auth/context';
-import { useCreatePost } from '../../hooks/useCreatePost';
-import { SpinnerBtn } from '../../../../components/spinnerBtn/SpinnerBtn';
-import { Button, ImageBox, TextArea } from '../../../../components';
 import './AddPost.scss';
+import { useGeneratePost } from '../../hooks/useGeneratePost';
+import { Button, ImageBox, TextArea } from '../../../../components';
+import { SpinnerBtn } from '../../../../components/spinnerBtn/SpinnerBtn';
 
 export const AddPost = () => {
 
@@ -12,11 +12,11 @@ export const AddPost = () => {
     const { title, content } = formState;
     const { user } = useContext(AuthContext);
     const { name, avatar } = user;
-    const { loadingCreate, onPost } = useCreatePost({ title, content, name, avatar });
+    const { createLoading, onCreate } = useGeneratePost({ title, content, name, avatar })
 
     const onSubmitPost = async (event: any) => {
         event.preventDefault();
-        await onPost();
+        await onCreate();
         onResetForm()
     }
 
@@ -39,7 +39,7 @@ export const AddPost = () => {
                     value={content}
                     onChange={onInputChange} />
 
-                {loadingCreate && <SpinnerBtn />}
+                {createLoading && <SpinnerBtn />}
 
                 <Button type='submit' text='Postear' disabled={(title.length < 1 && content.length < 1)} onClick={onSubmitPost} />
             </form>
