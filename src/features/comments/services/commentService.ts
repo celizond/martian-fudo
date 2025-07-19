@@ -3,8 +3,8 @@ import type { comment } from "../types/commentTypes";
 
 export const commentService = {
 
-    getComment: (idComment: string) => {
-        const url = `/post/2/comment/${idComment}`;
+    getComment: (idPost: string, idComment: string) => {
+        const url = `/post/${idPost}/comment/${idComment}`;
         return api.get(url);;
     },
 
@@ -13,22 +13,22 @@ export const commentService = {
         return api.get(url);
     },
 
-    createComment: (parentId: null | string, postId:string, content: Partial<comment>) => {
+    createComment: (idPost:string, parentId: null | string, content: Partial<comment>) => {
         const currentDate = new Date();
         const updateDate = new Date(currentDate.getTime() - 3 * 60 * 60 * 1000);
         const createdAt = updateDate.toISOString();
-        const url = `/post/${postId}/comment`;
+        const url = `/post/${idPost}/comment`;
         const comment = { ...content, createdAt: createdAt, parentId: parentId };
         return api.post(url, comment);
     },
 
-    updateComments: (idComment: string) => {
-        const url = `/post/2/comment/${idComment}`;
+    updateComment: (idPost: string, idComment: string) => {
+        const url = `/post/${idPost}/comment/${idComment}`;
         return api.put(url);
     },
 
-    deleteComments: (idComment: string) => {
-        const url = `/post/2/comment/${idComment}`;
+    deleteComment: (idPost: string, idComment: string) => {
+        const url = `/post/${idPost}/comment/${idComment}`;
         return api.delete(url);
     },
 
