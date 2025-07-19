@@ -21,9 +21,12 @@
 
         p {
             margin: 0;
-            padding-left: $med;
             font-size: $sma;
             margin-bottom: $sma;
+        }
+
+        .comment-content {
+            align-items: start;
         }
     }
     h4 {

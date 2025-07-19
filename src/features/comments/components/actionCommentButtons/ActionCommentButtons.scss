@@ -1,0 +1,14 @@
+@use '../../../../_variables' as *;
+
+.action-post-buttons {
+
+    .modal-content {
+        padding: $sma;
+        margin-right: 34px;
+
+        .modal-message {
+            text-align: left;
+            font-size: $big;
+        }
+    }
+}

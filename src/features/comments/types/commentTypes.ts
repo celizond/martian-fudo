@@ -8,3 +8,11 @@ export type comment = {
 }
 
 export type comments = comment[];
+
+export type MoreCommentsProps = {
+    id: string;
+}
+
+export type AddCommentProps = {
+  nested?: string | null;
+};

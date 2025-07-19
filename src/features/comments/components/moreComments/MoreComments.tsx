@@ -1,13 +1,13 @@
 
-import type { comment } from '../../types/commentTypes';
+import type { comment, MoreCommentsProps } from '../../types/commentTypes';
 import { ErrorMessage, Spinner } from '../../../../components';
 import { DetailComment } from '../detailComment/DetailComment';
-import './MoreComments.scss';
 import { useGetAllComments } from '../../services/queries/getAllComments';
 import { useLocation } from 'react-router-dom';
 import type { post } from '../../../posts';
+import './MoreComments.scss';
 
-export const MoreComments = ({ id }: any) => {
+export const MoreComments = ({ id }: MoreCommentsProps) => {
 
     const { state } = useLocation();
     const post: post = state?.post;

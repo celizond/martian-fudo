@@ -2,7 +2,10 @@
 
 .view-more-comments {
     background-color: $dark-secondary;
-    text-align: center;
+
+    .view-more-text {
+        text-align: center;
+    }
 
     .nested-comment {
         /* margin-left: 36px; */

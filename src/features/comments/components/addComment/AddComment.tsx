@@ -3,16 +3,17 @@ import { Button, ImageBox, SpinnerBtn, TextArea } from '../../../../components';
 import { useForm } from '../../../../hooks/useForm';
 import { AuthContext } from '../../../auth/context';
 import { useGenerateComment } from '../../hooks/useGenerateComment';
+import type { eventType } from '../../../../types/generic.types';
+import type { AddCommentProps } from '../../types/commentTypes';
 import './AddComment.scss';
-import type { eventType } from '../../../../types/commonComponents.types';
 
-export const AddComment = () => {//aca va a ir parentId y anotherFn
+export const AddComment = ({nested = null}: AddCommentProps) => {
 
     const { formState, onInputChange, onResetForm } = useForm({ content: '' })
     const { content } = formState;
     const { user } = useContext(AuthContext);
     const { name, avatar } = user;
-    const { createLoading, onCreate } = useGenerateComment(null, { content, name, avatar });
+    const { createLoading, onCreate } = useGenerateComment(nested, { content, name, avatar });
 
     const onSubmitComment = async (event: eventType) => {
         event.preventDefault();

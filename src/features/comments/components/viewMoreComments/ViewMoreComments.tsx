@@ -3,19 +3,21 @@ import { useState } from 'react';
 import './ViewMoreComments.scss';
 import { MoreComments } from '../moreComments/MoreComments';
 
-export const ViewMoreComments = ({id}:any) => {
+export const ViewMoreComments = ({ id }: any) => {
 
     const [isOpenCommentaries, setIsOpenCommentaries] = useState(false);
-    
+
     return (
         <div className='view-more-comments'>
-            <a target='_self' rel='noopener noreferrer' onClick={() => setIsOpenCommentaries(!isOpenCommentaries)}>
-                Ver más comentarios
-            </a>
+            <div className='view-more-text'>
+                <a target='_self' rel='noopener noreferrer' onClick={() => setIsOpenCommentaries(!isOpenCommentaries)}>
+                    Ver más comentarios
+                </a>
+            </div>
             <div className='nested-comment'>
                 {
                     isOpenCommentaries &&
-                    <MoreComments id={id}/>
+                    <MoreComments id={id} />
                 }
             </div>
         </div>
