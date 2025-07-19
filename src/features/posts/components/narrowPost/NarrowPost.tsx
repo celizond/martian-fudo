@@ -1,5 +1,5 @@
 import type { post } from '../../types/postTypes';
-import { ActionButtons } from '../actionButtons/ActionButtons';
+import { ActionPostButtons } from '../actionPostButtons/ActionPostButtons';
 import './NarrowPost.scss';
 
 export const NarrowPost = (post: post) => {
@@ -15,7 +15,7 @@ export const NarrowPost = (post: post) => {
             <hr />
             <span className='title shorten-content'> {title} </span>
             <p className='shorten-content'> {content} </p>
-            <ActionButtons {...post} />
+            <ActionPostButtons post={post} threeButtons={true}/>
         </article>
     )
 }

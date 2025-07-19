@@ -22,12 +22,12 @@ export const postService = {
         return api.post(url, post);
     },
 
-    updatePosts: (idPost: string) => {
+    updatePost: (idPost: string, post: Partial<post>) => {
         const url = `/post/${idPost}`;
-        return api.put(url);
+        return api.put(url, post);
     },
 
-    deletePosts: (idPost: string) => {
+    deletePost: (idPost: string) => {
         const url = `/post/${idPost}`;
         return api.delete(url);
     },

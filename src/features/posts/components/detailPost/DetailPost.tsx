@@ -2,8 +2,11 @@
 
 import { ImageBox } from "../../../../components";
 import type { post } from "../../types/postTypes"
+import { ActionPostButtons } from "../actionPostButtons/ActionPostButtons";
 import './DetailPost.scss';
-export const DetailPost = ({ avatar, name, createdAt, id, title, content }: post) => {
+
+export const DetailPost = (post: post) => {
+    const { avatar, name, createdAt, id, title, content } = post;
 
     return (
         <article className='detail-post'>
@@ -14,6 +17,7 @@ export const DetailPost = ({ avatar, name, createdAt, id, title, content }: post
                 
             </header>
             <p className='content'> {content} </p>
+            <ActionPostButtons post={post}/>
             <footer>
                 <div>
                     <strong>Post</strong> #{id}

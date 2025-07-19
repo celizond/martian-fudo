@@ -7,20 +7,36 @@ export const useActionsPost = (post: post) => {
 
     const { id } = post;
     const [isOpenModal, setIsOpenModal] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
+    const [modalMessage, setModalMessage] = useState<any>('');
     const [loadingDelete, setLoadingDelete] = useState(false);
+    const [loadingUpdate, setLoadingUpdate] = useState(false);
+    const [isEditing, setIsEditing] = useState(false)
 
     const navigate = useNavigate();
 
-    const onQuitModal = () => {
+    const handlerQuitModal = () => {
         setIsOpenModal(false);
-        window.location.reload();
+        setModalMessage('');
+    }
+
+    const handlerUpdate = () => {
+        setIsEditing(true);
+        setIsOpenModal(true);
+    }
+
+    const handlerSubmitUpdate = (event: any, formState: any) => {
+        event.preventDefault();
+        onUpdate(formState);
+    }
+
+    const handlerViewMore = () => {
+        navigate(`/post/${id}`, { state: { post } })
     }
 
     const onDelete = async () => {
         setLoadingDelete(true);
         try {
-            await postService.deletePosts(id);
+            await postService.deletePost(id);
             //await new Promise(resolve => setTimeout(resolve, 1000));
             setModalMessage(`Post #${id} eliminado`);
             setLoadingDelete(false);
@@ -32,21 +48,33 @@ export const useActionsPost = (post: post) => {
         }
     }
 
-    const onUpdate = async () => {
-        await postService.deletePosts(id);
+    const onUpdate = async (formState: any) => {
+        setLoadingUpdate(true);
+        try {
+            await postService.updatePost(id, formState);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            setModalMessage(`Post #${id} actualizado`);
+            setLoadingUpdate(false);
+        } catch (error) {
+            setLoadingUpdate(false);
+            setModalMessage(`Ha ocurrido un error actualizando el post #${id}`);
+        } finally {
+            setIsOpenModal(true);
+        }
     }
 
-    const onViewMore = () => {
-        navigate(`/post/${id}`, { state: { post } })
-    }
 
     return {
         modalMessage,
         loadingDelete,
+        loadingUpdate,
         isOpenModal,
-        onQuitModal,
+        isEditing,
+        handlerQuitModal,
+        handlerViewMore,
+        handlerUpdate,
+        handlerSubmitUpdate,
         onDelete,
         onUpdate,
-        onViewMore,
     }
 }
