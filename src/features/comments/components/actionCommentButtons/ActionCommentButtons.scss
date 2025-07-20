@@ -1,6 +1,6 @@
 @use '../../../../_variables' as *;
 
-.action-post-buttons {
+.action-comment-buttons {
 
     .modal-content {
         padding: $sma;
@@ -9,6 +9,12 @@
         .modal-message {
             text-align: left;
             font-size: $big;
+        }
+
+        .update-form {
+            h4 {
+                padding: 0px;
+            }
         }
     }
 }

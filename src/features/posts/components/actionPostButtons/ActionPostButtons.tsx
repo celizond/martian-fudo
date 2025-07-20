@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Button, Modal, Spinner, SpinnerBtn, TextArea } from '../../../../components/index';
 import { AuthContext } from '../../../auth/context';
 import { useForm } from '../../../../hooks/useForm';
@@ -9,25 +9,37 @@ import { useModalActions } from '../../../../hooks/useModalActions';
 
 export type ActionPostButtonsProps = {
     post: post;
-    threeButtons?: boolean;
 }
 
-export const ActionPostButtons = ({ post, threeButtons = false }: ActionPostButtonsProps) => {
+export const ActionPostButtons = ({ post}: ActionPostButtonsProps) => {
 
     const { user } = useContext(AuthContext);
-    const { 
-        formState, 
-        onInputChange, 
+    const {
+        formState,
+        onInputChange,
     } = useForm({ title: post.title, content: post.content });
     const {
-        deleteLoading,
-        updateLoading,
-        handlerViewMore, onDelete, onUpdate,
+        deleteLoading, updateLoading, deleteError, updateError, deleteSuccess, updateSuccess,
+        onDelete, onUpdate,
     } = useActionsPost(post, formState);
     const {
         modalMessage, isOpenModal, isUpdating,
-        handlerQuitModal, handlerUpdate, handlerSubmitAction,
+        handlerQuitModal, handlerUpdate, handlerSubmitAction, handlerSuccessModal, handlerErrorModal,
     } = useModalActions();
+
+    useEffect(() => {
+        console.log('se ejecuta success');
+        if (deleteSuccess || updateSuccess) {
+            handlerSuccessModal();
+        }
+    }, [deleteSuccess, updateSuccess]);
+
+    useEffect(() => {
+        console.log('se ejecuta error');
+        if (deleteError || updateError) {
+            handlerErrorModal();
+        }
+    }, [deleteError, updateError]);
 
     return (
         <div className="action-post-buttons">
@@ -37,11 +49,11 @@ export const ActionPostButtons = ({ post, threeButtons = false }: ActionPostButt
                 {user.name === post.name &&
                     <>
                         <Button style='btn-delete' text='Eliminar' onClick={onDelete} />
-                        <Button style='btn-update' text='Modificar' onClick={handlerUpdate} />
+                        <Button style='btn-update' text='Editar' onClick={handlerUpdate} />
                     </>
                 }
             </div>
-            {threeButtons && <Button text='Seguir leyendo' onClick={handlerViewMore} />}
+            
 
             <Modal isOpen={isOpenModal} onClose={handlerQuitModal}>
                 <div className='modal-content'>
@@ -53,6 +65,7 @@ export const ActionPostButtons = ({ post, threeButtons = false }: ActionPostButt
                             <form
                                 onSubmit={e => handlerSubmitAction(e, () => onUpdate())}
                                 className='update-form' >
+                                <h4>Edita tu post</h4>
                                 <TextArea name='title' value={formState.title} onChange={onInputChange} />
                                 <TextArea name='content' value={formState.content} onChange={onInputChange} />
 

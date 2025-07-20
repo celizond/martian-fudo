@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { eventType } from '../types/commonComponents.types';
+import type { eventType } from '../types/generic.types';
 
 export const useModalActions = () => {
 
@@ -8,8 +8,21 @@ export const useModalActions = () => {
     const [isUpdating, setIsUpdating] = useState(false)
 
     const handlerQuitModal = () => {
+        console.log(33333)
         setIsOpenModal(false);
+        console.log(44444)
         setModalMessage('');
+        console.log(55555, isOpenModal, modalMessage, isUpdating);
+    }
+
+    const handlerErrorModal = () => {
+        setModalMessage('Ha ocurrido un error');
+        setIsOpenModal(true);
+    }
+
+    const handlerSuccessModal = () => {
+        setModalMessage('Operación ejecutada con éxito');
+        setIsOpenModal(true);
     }
 
     const handlerUpdate = () => {
@@ -19,7 +32,9 @@ export const useModalActions = () => {
 
     const handlerSubmitAction = async(event: eventType, continueFn: () => Promise<void>) => {
         event.preventDefault();
+        console.log(11111)
         await continueFn();
+        console.log(222222)
         handlerQuitModal();
     }
 
@@ -30,5 +45,7 @@ export const useModalActions = () => {
         handlerQuitModal,
         handlerUpdate,
         handlerSubmitAction,
+        handlerErrorModal,
+        handlerSuccessModal,
     }
 }

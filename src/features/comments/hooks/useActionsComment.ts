@@ -2,17 +2,17 @@ import type { comment } from '../types/commentTypes';
 import { useDeleteComment } from '../services/mutations/deleteComment';
 import { useUpdateComment } from '../services/mutations/updateComment';
 
-export const useActionsComment = (id: string, formState: Partial<comment>) => {
+export const useActionsComment = (comment: comment, formState: Partial<comment>) => {
 
     const deleteMutation = useDeleteComment();
-    const updateMutation = useUpdateComment(formState);
+    const updateMutation = useUpdateComment( formState);
 
     const onDelete = async () => {
-        deleteMutation.mutate(id); 
+        deleteMutation.mutate(comment.id); 
     }
 
     const onUpdate = async () => {
-        updateMutation.mutate(); 
+        updateMutation.mutate(comment.id); 
     }
 
     return {

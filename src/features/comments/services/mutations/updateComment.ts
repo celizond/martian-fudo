@@ -9,7 +9,7 @@ export const useUpdateComment = (formState: any) => {
   const post: post = state?.post;
 
   return useMutation({
-    mutationFn: () => commentService.updateComment(post.id, formState),
+    mutationFn: (id: string) => commentService.updateComment(post.id, id, formState),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['comments'] });
     },

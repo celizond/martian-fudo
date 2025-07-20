@@ -16,3 +16,8 @@ export type MoreCommentsProps = {
 export type AddCommentProps = {
   nested?: string | null;
 };
+
+export type ActionCommentButtonsProps = {
+    comment: comment;
+    threeButtons?: boolean;
+}

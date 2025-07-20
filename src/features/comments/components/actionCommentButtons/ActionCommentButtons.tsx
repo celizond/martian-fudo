@@ -1,32 +1,39 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Button, Modal, Spinner, SpinnerBtn, TextArea } from '../../../../components/index';
 import { AuthContext } from '../../../auth/context';
 import { useForm } from '../../../../hooks/useForm';
-import type { comment } from '../../types/commentTypes';
-import './ActionCommentButtons.scss';
 import { useModalActions } from '../../../../hooks/useModalActions';
 import { useActionsComment } from '../../hooks/useActionsComment';
-
-export type ActionCommentButtonsProps = {
-    comment: comment;
-    threeButtons?: boolean;
-}
+import type { ActionCommentButtonsProps } from '../../types/commentTypes';
+import './ActionCommentButtons.scss';
 
 export const ActionCommentButtons = ({ comment }: ActionCommentButtonsProps) => {
 
     const { user } = useContext(AuthContext);
-    const { 
-        formState, 
-        onInputChange, 
+    const {
+        formState,
+        onInputChange,
     } = useForm({ content: comment.content });
     const {
-        deleteLoading, updateLoading,
+        deleteLoading, updateLoading, deleteError, updateError, deleteSuccess, updateSuccess,
         onDelete, onUpdate,
-    } = useActionsComment(comment.id, formState);
+    } = useActionsComment(comment, formState);
     const {
         modalMessage, isOpenModal, isUpdating,
-        handlerQuitModal, handlerUpdate, handlerSubmitAction,
+        handlerQuitModal, handlerUpdate, handlerSubmitAction, handlerSuccessModal, handlerErrorModal,
     } = useModalActions();
+
+    useEffect(() => {
+        if (deleteSuccess || updateSuccess) {
+            handlerSuccessModal();
+        }
+    }, [deleteSuccess, updateSuccess]);
+
+    useEffect(() => {
+        if (deleteError || updateError) {
+            handlerErrorModal();
+        }
+    }, [deleteError, updateError]);
 
     return (
         <div className="action-comment-buttons">
@@ -36,7 +43,7 @@ export const ActionCommentButtons = ({ comment }: ActionCommentButtonsProps) => 
                 {user.name === comment.name &&
                     <>
                         <Button style='btn-delete' text='Eliminar' onClick={onDelete} />
-                        <Button style='btn-update' text='Modificar' onClick={handlerUpdate} />
+                        <Button style='btn-update' text='Editar' onClick={handlerUpdate} />
                     </>
                 }
             </div>
@@ -51,10 +58,10 @@ export const ActionCommentButtons = ({ comment }: ActionCommentButtonsProps) => 
                             <form
                                 onSubmit={e => handlerSubmitAction(e, () => onUpdate())}
                                 className='update-form' >
-                                <TextArea name='title' value={formState.title} onChange={onInputChange} />
+                                <h4>Edita tu comentario</h4>
                                 <TextArea name='content' value={formState.content} onChange={onInputChange} />
 
-                                <Button text='Comentar' onClick={e => handlerSubmitAction(e, () => onUpdate())} />
+                                <Button text='Enviar' onClick={e => handlerSubmitAction(e, () => onUpdate())} />
                             </form>
                     }
                 </div>

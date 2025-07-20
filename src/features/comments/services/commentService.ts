@@ -23,9 +23,9 @@ export const commentService = {
         return api.post(url, comment);
     },
 
-    updateComment: (idPost: string, idComment: string) => {
+    updateComment: (idPost: string, idComment: string, comment: Partial<comment>) => {
         const url = `/post/${idPost}/comment/${idComment}`;
-        return api.put(url);
+        return api.put(url, comment);
     },
 
     deleteComment: (idPost: string, idComment: string) => {
