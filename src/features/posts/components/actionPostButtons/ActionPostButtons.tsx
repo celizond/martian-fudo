@@ -28,14 +28,12 @@ export const ActionPostButtons = ({ post}: ActionPostButtonsProps) => {
     } = useModalActions();
 
     useEffect(() => {
-        console.log('se ejecuta success');
         if (deleteSuccess || updateSuccess) {
             handlerSuccessModal();
         }
     }, [deleteSuccess, updateSuccess]);
 
     useEffect(() => {
-        console.log('se ejecuta error');
         if (deleteError || updateError) {
             handlerErrorModal();
         }
