@@ -1,0 +1,16 @@
+@use '../../_variables' as *;
+
+input {
+    background-color: $light-primary;
+    color: $dark;
+    padding: 8px;
+    width: 250px;
+    font-size: $sma;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 600px) {
+    input {
+        width: 400px;
+    }
+}

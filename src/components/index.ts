@@ -3,6 +3,7 @@ export * from './button/Button';
 export * from './errorMessage/ErrorMessage';
 export * from './goBack/GoBack';
 export * from './imageBox/ImageBox';
+export * from './input/Input';
 export * from './main/Main';
 export * from './modal/Modal';
 export * from './navBar/NavBar';

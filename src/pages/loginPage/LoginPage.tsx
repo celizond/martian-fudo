@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../features/auth/context";
 import { useForm } from "../../hooks/useForm";
 import './LoginPage.scss';
-import { Button } from "../../components";
-import type { eventType } from "../../types/commonComponents.types";
+import { Button, Input } from "../../components";
+import type { eventType } from "../../types/generic.types";
 
 export const LoginPage = () => {
 
@@ -20,30 +20,18 @@ export const LoginPage = () => {
     login(name, avatar);
   }
 
+  const checkData = (avatar.length < 1 || name.length < 1) ? true : false;
+
   return (
     <div className="box">
-      <h2>Login</h2>
-      <hr />
+      <h2>Iniciar Sesion</h2>
 
       <form
         onSubmit={onLogin}>
-        <input
-          name='name'
-          type='text'
-          className=''
-          placeholder='Nombre de usuario invitado'
-          value={name}
-          onChange={onInputChange}>
-        </input>
-        <input
-          name='avatar'
-          type='text'
-          className=''
-          placeholder='URL de avatar'
-          value={avatar}
-          onChange={onInputChange}>
-        </input>       
-        <Button text='Login' type='submit'disabled={name.length < 1 ? true : false} onClick={onLogin} />
+        <Input name='name' type='text' placeholder='Nombre de usuario invitado' value={name} onChange={onInputChange} />
+        <Input name='avatar' type='text' placeholder='URL de avatar' value={avatar} onChange={onInputChange} />
+
+        <Button text='Ingresar' type='submit' disabled={checkData} onClick={onLogin} />
       </form>
 
     </div>
