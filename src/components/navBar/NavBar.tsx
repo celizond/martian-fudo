@@ -22,7 +22,6 @@ export const NavBar = () => {
                 <ImageBox
                     src={user.avatar}
                     alt='profile-user-photo' />
-
             </div>
         </nav>
     )

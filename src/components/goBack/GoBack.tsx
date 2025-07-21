@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import './GoBack.scss'
+import './GoBack.scss';
 
 export const GoBack = () => {
 

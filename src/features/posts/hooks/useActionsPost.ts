@@ -5,9 +5,7 @@ import { useUpdatePost } from '../services/mutations/updatePost';
 export const useActionsPost = (post: post, formState: Partial<post>) => {
 
     const deleteMutation = useDeletePost();
-    const updateMutation = useUpdatePost(formState);
-
-    
+    const updateMutation = useUpdatePost(formState, post.id);
 
     const onDelete = async () => {
         deleteMutation.mutate(post.id); 

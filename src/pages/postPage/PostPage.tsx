@@ -1,25 +1,30 @@
-import { useLocation } from 'react-router-dom';
 import { MartianLayout } from '../../layouts/MartianLayout';
-import { DetailPost } from '../../features/posts/components';
-import { AddComment } from '../../features/comments/components/addComment/AddComment';
-import { FeedComments } from '../../features/comments/components/feedComments/FeedComments';
-import { GoBack } from '../../components/goBack/GoBack';
-import './PostPage.scss'
-import type { post } from '../../features/posts';
+import { useLocation } from 'react-router-dom';
+import { useGetOnePost } from '../../features/posts/services/queries/getOnePost';
+import { useGetAllComments } from '../../features/comments/services/queries/getAllComments';
+import { DetailPost, type post } from '../../features/posts';
+import './PostPage.scss';
+import { GoBack } from '../../components';
+import { AddComment, FeedComments } from '../../features/comments/components';
 
 export const PostPage = () => {
-
     const { state } = useLocation();
-    const post: post = state?.post;
+    const storedPost: post = state?.post;
+    const { onePost } = useGetOnePost(storedPost)
+    const {isLoading, error, mainComments} = useGetAllComments(storedPost.id);
 
     return (
         <MartianLayout>
             <>
                 <GoBack />
-                <DetailPost {...post} />
+                {<DetailPost {...onePost} />}
                 <AddComment />
                 <h2>Comentarios</h2>
-                <FeedComments postId={post.id}/>
+                {<FeedComments
+                    mainComments={mainComments}
+                    isLoadingComments={isLoading}
+                    errorComments={error}
+                />}
             </>
         </MartianLayout>
     )

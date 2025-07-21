@@ -11,7 +11,7 @@ export const FeedPosts = () => {
     return (
         <section>
             { isLoading && <Spinner /> }
-            { error && <ErrorMessage /> }
+            { error && <ErrorMessage type='posts' /> }
             { !isLoading && !error && data?.map((post: post) => (
                 <NarrowPost key={post.id} {...post} />
             ))}

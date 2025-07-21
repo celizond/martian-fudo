@@ -1,11 +1,11 @@
 
-import type { comment, MoreCommentsProps } from '../../types/commentTypes';
 import { ErrorMessage, Spinner } from '../../../../components';
 import { DetailComment } from '../detailComment/DetailComment';
 import { useGetAllComments } from '../../services/queries/getAllComments';
 import { useLocation } from 'react-router-dom';
 import type { post } from '../../../posts';
 import './MoreComments.scss';
+import type { comment, MoreCommentsProps } from '../../types';
 
 export const MoreComments = ({ id }: MoreCommentsProps) => {
 
@@ -18,7 +18,7 @@ export const MoreComments = ({ id }: MoreCommentsProps) => {
     return (
         <section className='nested-sub-comments'>
             {isLoading && <Spinner />}
-            {error && <ErrorMessage />}
+            {(error || ( !isLoading && commentsForComment.length === 0) ) && <ErrorMessage type='comments' />}
             {!isLoading && !error && commentsForComment?.map((comment: comment) => (
                 <DetailComment key={comment.id} {...comment} />
             ))}

@@ -1,7 +1,7 @@
 @use '../../_variables' as *;
 
 .error-message {
-    background-color: $tertiary;
+    background-color: $danger;
     color: $light-primary;
     padding: 16px;
     font-weight: 500;

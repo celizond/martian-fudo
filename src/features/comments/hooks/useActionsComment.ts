@@ -1,11 +1,11 @@
-import type { comment } from '../types/commentTypes';
+import type { comment } from '../types/comment.types';
 import { useDeleteComment } from '../services/mutations/deleteComment';
 import { useUpdateComment } from '../services/mutations/updateComment';
 
 export const useActionsComment = (comment: comment, formState: Partial<comment>) => {
 
     const deleteMutation = useDeleteComment();
-    const updateMutation = useUpdateComment( formState);
+    const updateMutation = useUpdateComment(formState);
 
     const onDelete = async () => {
         deleteMutation.mutate(comment.id); 

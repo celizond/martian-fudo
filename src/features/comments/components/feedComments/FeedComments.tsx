@@ -1,17 +1,14 @@
 import { ErrorMessage, Spinner } from '../../../../components';
-import { DetailComment } from '../detailComment/DetailComment';
-import type { comment } from '../../types/commentTypes';
-import { useGetAllComments } from '../../services/queries/getAllComments';
+import { DetailComment } from '../index';
+import type { comment, FeedCommentsProps } from '../../types';
 
-export const FeedComments = ({ postId }: { postId: string }) => {
-
-    const { mainComments, isLoading, error } = useGetAllComments(postId);
+export const FeedComments = ({ mainComments, isLoadingComments, errorComments}: FeedCommentsProps) => {
 
     return (
         <section>
-            {isLoading && <Spinner />}
-            {error && <ErrorMessage />}
-            {!isLoading && !error && mainComments?.map((comment: comment) => (
+            {isLoadingComments && <Spinner />}
+            {errorComments && <ErrorMessage type={'comments'}/>}
+            {!isLoadingComments && !errorComments && mainComments?.map((comment: comment) => (
                 <DetailComment key={comment.id} {...comment} />
             )) }
         </section>

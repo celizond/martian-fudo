@@ -1,14 +1,20 @@
 import { useState } from 'react';
 import { Button, ImageBox, Modal } from '../../../../components';
-import type { comment } from '../../types/commentTypes';
 import { AddComment } from '../addComment/AddComment';
 import { ViewMoreComments } from '../viewMoreComments/ViewMoreComments';
-import './DetailComment.scss';
 import { ActionCommentButtons } from '../actionCommentButtons/ActionCommentButtons';
+import type { comment } from '../../types';
+import './DetailComment.scss';
 
 export const DetailComment = (comment: comment) => {
   const { id, name, avatar, content } = comment;
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [forceOpen, setForceOpen] = useState(false);
+
+  const handlerComment = () => {
+    setIsOpenModal(false);
+    setForceOpen(true);
+  }
 
   return (
     <div className='detail-comment'>
@@ -25,12 +31,12 @@ export const DetailComment = (comment: comment) => {
       </article>
 
       <footer className='comment-actions'>
-        <ViewMoreComments id={id} />
+        <ViewMoreComments id={id} forceOpen={forceOpen} />
       </footer>
 
       <Modal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}>
         <h4>Responde el comentario de {name}</h4>
-        <AddComment nested={id} /* anotherFn={() => setIsOpenModal(false)} */ />
+        <AddComment nested={id} anotherFn={handlerComment} />
       </Modal>
 
     </div>

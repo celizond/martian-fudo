@@ -1,6 +1,10 @@
-@use '../../../../_variables' as *;
+@use '../../_variables' as *;
 
-.action-comment-buttons {
+.action-buttons {
+
+    .action-btns > .two-buttons {
+        display: flex;
+    }
 
     .modal-content {
         padding: $sma;
@@ -11,10 +15,8 @@
             font-size: $big;
         }
 
-        .update-form {
-            h4 {
-                padding: 0px;
-            }
+        .update-form > h4 {
+            padding: 0;
         }
     }
 }

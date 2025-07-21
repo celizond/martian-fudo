@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { commentService } from '../commentService';
-import type { comment } from '../../types/commentTypes';
+import type { comment } from '../../types/comment.types';
 
 export const useGetAllComments = (idPost: string) => {
-    
     const { data, error, isLoading } = useQuery({
-        queryKey: ['comments'],
+        queryKey: ['comments', 'post', idPost],
         queryFn: async () => {
             const res = await commentService.getComments(idPost);
             res.data.sort((a:any, b:any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());

@@ -30,11 +30,11 @@
     }
 
     .btn-delete {
-        background-color: #630909a1;
+        background-color: $danger;
         margin-bottom: 4px;
     }
 
     .btn-update {
-        background-color: #113d05a1;
+        background-color: $success;
     }
 }

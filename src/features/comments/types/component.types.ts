@@ -1,13 +1,4 @@
-export type comment = {
-    createdAt: string;
-    name: string;
-    avatar: string;
-    id: string;
-    content: string;
-    parentId: null | string;
-}
-
-export type comments = comment[];
+import type { comment } from "./comment.types";
 
 export type MoreCommentsProps = {
     id: string;
@@ -15,9 +6,16 @@ export type MoreCommentsProps = {
 
 export type AddCommentProps = {
   nested?: string | null;
+  anotherFn?: () => void;
 };
 
 export type ActionCommentButtonsProps = {
     comment: comment;
     threeButtons?: boolean;
+}
+
+export type FeedCommentsProps = {
+    mainComments:any;
+    isLoadingComments: boolean;
+    errorComments: any;
 }

@@ -8,5 +8,4 @@ export * from './main/Main';
 export * from './modal/Modal';
 export * from './navBar/NavBar';
 export * from './spinner/Spinner';
-export * from './spinnerBtn/SpinnerBtn';
 export * from './textArea/TextArea';

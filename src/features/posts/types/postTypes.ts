@@ -6,3 +6,11 @@ export type post = {
     title: string;
     content: string;
 }
+
+export type ActionPostButtonsProps = {
+    post: post;
+}
+
+export type DetailPostProps = {
+    post: post;
+}

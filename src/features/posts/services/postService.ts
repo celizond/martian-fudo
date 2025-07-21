@@ -5,10 +5,10 @@ export const postService = {
 
     getPost: (idPost: string) => {
         const url = `/post/${idPost}`;
-        return api.get(url);;
+        return api.get(url);
     },
 
-    getPosts: async () => {
+    getPosts: () => {
         const url = '/post';
         return api.get(url);
     },

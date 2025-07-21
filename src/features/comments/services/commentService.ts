@@ -1,5 +1,5 @@
 import { api } from "../../../services/api";
-import type { comment } from "../types/commentTypes";
+import type { comment } from "../types/comment.types";
 
 export const commentService = {
 
@@ -13,13 +13,12 @@ export const commentService = {
         return api.get(url);
     },
 
-    createComment: (idPost:string, parentId: null | string, content: Partial<comment>) => {
+    createComment: (idPost: string, parentId: null | string, content: Partial<comment>) => {
         const currentDate = new Date();
         const updateDate = new Date(currentDate.getTime() - 3 * 60 * 60 * 1000);
         const createdAt = updateDate.toISOString();
         const url = `/post/${idPost}/comment`;
         const comment = { ...content, createdAt: createdAt, parentId: parentId };
-        console.log('Creating comment:', comment, ' - ', content);
         return api.post(url, comment);
     },
 

@@ -1,9 +1,11 @@
+import { errorMessages } from '../../data/messages';
+import type { ErrorMessageProps } from '../../types/commonComponents.types';
 import './ErrorMessage.scss';
 
-export const ErrorMessage = () => {
+export const ErrorMessage = ({type}: ErrorMessageProps) => {
   return (
     <div className="error-message">
-      &#128125; Ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde &#128125;
+      &#128125; {errorMessages[type]} &#128125;
     </div>
   )
 }

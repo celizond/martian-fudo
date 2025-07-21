@@ -1,11 +1,11 @@
 import { useCreateComment } from "../services/mutations/createComment";
-import type { comment } from "../types/commentTypes";
+import type { comment } from "../types/comment.types";
 
 export const useGenerateComment = (parentId: null | string, partialComment: Partial<comment>) => {
 
     const createMutation = useCreateComment(parentId, partialComment);
 
-    const onCreate = async () => {
+    const onCreate = () => {
         createMutation.mutate(); 
     }
 
