@@ -1,0 +1,24 @@
+# Ignorar solo node_modules y build outputs generados localmente
+node_modules
+
+# No ignores dist ni docs, porque podrían ser necesarios
+# dist
+# docs
+
+# Archivos del sistema/editor
+.DS_Store
+*.log
+*.swp
+
+# Control de versiones
+.git
+.gitignore
+
+# Configuraciones locales
+.env
+.vscode
+.idea
+
+# Docker
+Dockerfile
+docker-compose.yml
